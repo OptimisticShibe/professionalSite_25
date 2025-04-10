@@ -1,0 +1,29 @@
+---
+import { Image } from "astro:assets";
+
+import RegalBadgeTransparent from "@assets/RegalBadgeTransparent.png";
+import Layout from "@layouts/Layout.astro";
+---
+
+<Layout>
+  <main class="grid grid-cols-1 place-content-center w-screen h-screen">
+    <div class="flex items-center justify-around border-zinc-100 shadow-[var(--blur-shadow)] rounded-2xl p-5 flex-col sm:flex-row m-10 text-center">
+      <h1 class="mb-2 text-5xl xs:text-6xl">Rafiq Ramadan</h1>
+      <!-- <div class="flex flex-col place-content-center text-center"> -->
+      <div class="flex place-content-center not-prose mr-4 order-2 sm:order-3">
+        <Image src={RegalBadgeTransparent} alt="Regal Transparent" class="-scale-x-[1]" />
+      </div>
+      <p class="order-3 sm:order-2">
+        <em>WebDev Fullstack Engineer</em>
+        <br />
+        <em>Chicago, IL</em>
+      </p>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  h1 {
+    /* margin-bottom: 0; */
+  }
+</style>
