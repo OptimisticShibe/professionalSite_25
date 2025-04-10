@@ -1,3 +1,8 @@
+---
+import Footer from "@components/Footer.astro";
+import TopNav from "@components/TopNav.astro";
+---
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -6,10 +11,14 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <link href="../src/styles/global.css" rel="stylesheet" />
-    <title>Astro Basics</title>
+    <title>Rafiq Ramadan</title>
   </head>
-  <body class="min-h-screen min-w-screen bg-zinc-900 prose prose-invert">
-    <slot />
+  <body>
+    <div class="min-h-full min-w-full bg-zinc-800 prose prose-invert flex flex-col justify-between">
+      <TopNav />
+      <slot />
+      <Footer />
+    </div>
   </body>
 </html>
 

@@ -2,18 +2,27 @@
 import { Image } from "astro:assets";
 
 import RegalBadgeTransparent from "@assets/RegalBadgeTransparent.png";
+import Ristretto from "@assets/RistrettoHeadshot_Talikira.png";
 import Layout from "@layouts/Layout.astro";
+import TopNav from "@components/TopNav.astro";
 ---
 
 <Layout>
-  <main class="grid grid-cols-1 place-content-center w-screen h-screen">
-    <div class="flex items-center justify-around border-zinc-100 shadow-[var(--blur-shadow)] rounded-2xl p-5 flex-col sm:flex-row m-10 text-center">
-      <h1 class="mb-2 text-5xl xs:text-6xl">Rafiq Ramadan</h1>
-      <!-- <div class="flex flex-col place-content-center text-center"> -->
-      <div class="flex place-content-center not-prose mr-4 order-2 sm:order-3">
-        <Image src={RegalBadgeTransparent} alt="Regal Transparent" class="-scale-x-[1]" />
+  <main class="grid grid-cols-12 place-content-center h-full my-10">
+    <div class="items-center justify-around border-zinc-100 shadow-[var(--blur-shadow)] rounded-2xl text-center p-5 bg-zinc-900/90 col-span-10 col-start-2">
+      <div class="flex flex-col">
+        <h1 class="mb-2 text-5xl xs:text-6xl">Rafiq Ramadan</h1>
+        <p class="md:block hidden md:order-2">
+          <em>Frontend Developer</em>
+          <br />
+          <em>Chicago, IL</em>
+        </p>
       </div>
-      <p class="order-3 sm:order-2">
+      <!-- <div class="flex flex-col place-content-center text-center"> -->
+      <div class="flex place-content-center not-prose order-2 md:order-3 min-w-none content-center items-center w-full -scale-x-[1]">
+        <Image src={RegalBadgeTransparent} alt="Regal Transparent" class="md:min-w-[400px] max-w-[75%]" />
+      </div>
+      <p class="md:hidden block md:order-2">
         <em>WebDev Fullstack Engineer</em>
         <br />
         <em>Chicago, IL</em>
