@@ -20,3 +20,41 @@
 .hamburger {
   filter: invert(93%) sepia(9%) saturate(154%) hue-rotate(181deg) brightness(95%) contrast(83%);
 }
+
+@font-face {
+  font-family: "Prospekt Regular";
+  src: url("/fonts/Prospekt Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Stargaze Regular";
+  src: url("/fonts/Stargaze Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto-VariableFont_wdth,wght";
+  src: url("/fonts/Roboto-VariableFont_wdth,wght.ttf") format("truetype supports variations"),
+    url("/fonts/Roboto-VariableFont_wdth,wght.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+html {
+  font-family: "Roboto-VariableFont_wdth,wght", sans-serif;
+  scrollbar-color: #eab308 #000;
+  background-color: var(--color-zinc-800);
+}
+
+h1 {
+  font-family: "Prospekt Regular", sans-serif;
+}
+h2 {
+  font-family: "Stargaze Regular", sans-serif;
+  letter-spacing: var(--tracking-wider);
+}

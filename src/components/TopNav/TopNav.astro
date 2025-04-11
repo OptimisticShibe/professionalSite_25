@@ -1,0 +1,26 @@
+---
+import Hamburger from "./Hamburger";
+import { navLinks } from "./NavLinks.ts";
+---
+
+<Hamburger client:only="react" />
+<nav class="hidden py-2 bg-zinc-900 w-full md:flex justify-between not-prose items-center px-5">
+  <a href="/" class="text-3xl flex items-center font-bold self-center">
+    <div class="">
+      <h2 class="">Rafiq Ramadan</h2>
+    </div>
+  </a>
+  <div class="hidden md:flex">
+    <ul class="flex gap-5 font-medium">
+      {
+        navLinks.map((link) => {
+          return (
+            <li class="hover:scale-[1.15] transition duration-300 p-2 font-bold">
+              <a href={link.url}>{link.label}</a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+</nav>

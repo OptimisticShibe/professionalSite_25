@@ -1,0 +1,68 @@
+---
+import Layout from "@layouts/Layout.astro";
+
+import Accordion from "@components/Accordion";
+import ContentBox from "@components/ContentBox.astro";
+import { Image } from "astro:assets";
+
+import top5spotify from "@assets/projects/top5spotify/top5spotify.png";
+import externalLink from "@assets/svg/externalLink.svg";
+import githubLogo from "@assets/svg/github.svg";
+---
+
+<Layout>
+  <div class="grid grid-cols-12">
+    <ContentBox>
+      <div slot="summary">
+        <h1 class="mt-2">🎶 🟢 Top Five Spotify</h1>
+        <div>
+          <p>This is a hobby project built from the ground up to practice using ReactJS, as well as integrating with a public API</p>
+          <p>
+            <strong>Goal: </strong>To display the user's Top 5 Spotify data in a visually-appealing manner, easily screenshotted for posting online or sharing
+            with friends
+          </p>
+          "Top Five Spotify" uses the following technologies:
+          <ul>
+            <li>ReactJS</li>
+            <li>Axios</li>
+            <li>ExpressJS</li>
+            <li>NodeJS</li>
+            <li>React Bootstrap</li>
+          </ul>
+        </div>
+      </div>
+      <div class="flex flex-col justify-between items-center h-full gap-4" slot="links">
+        <a class="ring-2 ring-zinc-200 rounded-xl flex items-center p-5 w-full gap-2 hover:brightness-150 bg-zinc-800 no-underline" href="/">
+          <Image src={githubLogo} alt="github logo" class="not-prose w-14" />
+          <div class="flex items-center justify-center w-full">
+            <span class="text-2xl">Github Repo</span>
+            <Image src={externalLink} alt="external link" class="w-5 ml-1 not-prose" />
+          </div></a
+        >
+        <a class="ring-2 ring-zinc-200 rounded-xl flex items-center p-5 w-full" href="/"
+          ><span>Live App <Image src={externalLink} alt="external link" class="w-4 ml-1 not-prose" /></span></a
+        >
+      </div>
+      <div class="flex flex-col h-full place-content-center" slot="sidebarImg">
+        <Image src={top5spotify} alt={"Top 5 Spotify Homepage"} class="not-prose" />
+        <figcaption>Logged-in User App Homepage</figcaption>
+      </div>
+      <div slot="gallery">
+        <Accordion client:load title="" content="">
+          <span slot="title">Project Image Gallery</span>
+          <div slot="content">
+            <Image src={top5spotify} alt={"Top 5 Spotify Homepage"} class="not-prose" />
+            <figcaption>Logged-in User App Homepage</figcaption><Image src={top5spotify} alt={"Top 5 Spotify Homepage"} class="not-prose" />
+            <figcaption>Logged-in User App Homepage</figcaption><Image src={top5spotify} alt={"Top 5 Spotify Homepage"} class="not-prose" />
+            <figcaption>Logged-in User App Homepage</figcaption>
+          </div>
+        </Accordion>
+      </div>
+    </ContentBox>
+    <div class="mx-10">
+      <!-- <Accordion client:only="react" title="" content=""> -->
+
+      <!-- </Accordion> -->
+    </div>
+  </div>
+</Layout>
