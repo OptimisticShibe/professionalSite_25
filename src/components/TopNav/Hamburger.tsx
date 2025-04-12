@@ -32,9 +32,9 @@ const Hamburger = () => {
       </div>
       <section className={` duration-300 ease-in-out w-full overflow-y-hidden ${hamburgerOpen ? "max-h-20" : "max-h-0"}`}>
         <ul className="flex justify-around w-full py-2">
-          {navLinks.map((link) => {
+          {navLinks.map((link, i) => {
             return (
-              <li className="hover:scale-[1.15] transition duration-300 p-2 font-bold">
+              <li className="hover:scale-[1.15] transition duration-300 p-2 font-bold" key={i}>
                 <a href={link.url}>{link.label}</a>
               </li>
             );
