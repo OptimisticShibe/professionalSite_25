@@ -38,20 +38,21 @@ const { title, technologies, githubRepoLink, link2, gallery } = Astro.props;
       <h1 class="mt-5">{title}</h1>
       <div class="block md:grid grid-cols-2 gap-5">
         <summary class="list-none mb-4"> <slot name="summary" /></summary>
+
+        <nav class="p-1 rounded-lg bg-black/25 divide-y-2 divide-zinc-200 mb-5">
+          <h3 class="ml-2 mt-2 mb-0 text-center">Contents</h3>
+          <div class="grid grid-cols-2 place-items-center">
+            <ul class="flex flex-col list-none flex-wrap p-0 mb-1 mt-0">
+              <li><a href="#links">Links</a></li>
+              <li><a href="#uxFlow">UX Flow</a></li>
+            </ul>
+            <ul class="flex flex-col list-none flex-wrap p-0 mb-1 mt-0">
+              <li><a href="#details">Tech. Details</a></li>
+              <li><a href="#gallery">Gallery</a></li>
+            </ul>
+          </div>
+        </nav>
       </div>
-      <nav class="p-1 rounded-lg bg-black/25 divide-y-2 divide-zinc-200 mb-5">
-        <h3 class="ml-2 mt-2 mb-0 text-center">Contents</h3>
-        <div class="grid grid-cols-2 place-items-center">
-          <ul class="flex flex-col list-none flex-wrap p-0 mb-1 mt-0">
-            <li><a href="#links">Links</a></li>
-            <li><a href="#uxFlow">UX Flow</a></li>
-          </ul>
-          <ul class="flex flex-col list-none flex-wrap p-0 mb-1 mt-0">
-            <li><a href="#details">Tech. Details</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-          </ul>
-        </div>
-      </nav>
     </section>
 
     <section id="goal">
