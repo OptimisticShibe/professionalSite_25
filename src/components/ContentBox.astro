@@ -6,12 +6,11 @@ interface Props {
 // const { columns } = Astro.props;
 ---
 
-<div
-  class:list={[
-    "grid grid-cols-12 grid-rows-auto col-start-2 col-span-10 bg-zinc-800 border-4 border-zinc-200 rounded-lg p-5 mx-5 shadow-[var(--blur-shadow)] prose-h2:m-0",
-  ]}
->
-  <div class:list={["col-start-1 col-span-12 lg:col-span-8 row-start-1 row-span-1"]}>
+<div class:list={["flex flex-col rounded-lg p-5 mx-2 "]}>
+  <main class="divide-y-2 divide-zinc-200">
+    <slot />
+  </main>
+  <!-- <div class:list={["col-start-1 col-span-12 lg:col-span-8 row-start-1 row-span-1"]}>
     <slot name="summary" />
   </div>
   <div class="hidden lg:block col-span-4 row-span-1">
@@ -26,5 +25,5 @@ interface Props {
   </div>
   <div class="col-span-12">
     <slot name="gallery" />
-  </div>
+  </div> -->
 </div>

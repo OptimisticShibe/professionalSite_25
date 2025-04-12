@@ -1,6 +1,13 @@
 ---
 import Footer from "@components/Footer.astro";
 import TopNav from "@components/TopNav/TopNav.astro";
+import { name } from "src/constants";
+
+interface Props {
+  centered?: boolean;
+}
+
+const { centered = false } = Astro.props;
 ---
 
 <!doctype html>
@@ -11,13 +18,15 @@ import TopNav from "@components/TopNav/TopNav.astro";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <link href="../src/styles/global.css" rel="stylesheet" />
-    <title>Rafiq Ramadan</title>
+    <title>{name}</title>
   </head>
   <body>
-    <div class="min-h-full min-w-full bg-zinc-800 prose prose-invert flex flex-col justify-between">
+    <div class:list={["min-h-full min-w-full bg-zinc-800 prose prose-invert flex flex-col gap-10", ` ${centered ? "justify-between " : ""}`]}>
       <TopNav />
-      <slot />
-      <Footer />
+      <div class="grow">
+        <slot />
+      </div>
+      <!-- <Footer /> -->
     </div>
   </body>
 </html>

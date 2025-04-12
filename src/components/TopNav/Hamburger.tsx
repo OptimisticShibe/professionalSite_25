@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { navLinks } from "./NavLinks";
+import { name } from "src/constants";
 
 const Hamburger = () => {
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
@@ -11,7 +12,9 @@ const Hamburger = () => {
   return (
     <nav className="md:hidden py-2 bg-zinc-900 w-full flex flex-col justify-between not-prose items-center">
       <div className="flex justify-between w-full px-5">
-        <h2 className="text-2xl">Rafiq Ramadan</h2>
+        <a href="/">
+          <h2 className="text-2xl">{name}</h2>
+        </a>
         <button onClick={handleClick} className="hover:cursor-pointer justify-self-end">
           <span
             className={`bg-zinc-200 block transition-all duration-300 ease-out

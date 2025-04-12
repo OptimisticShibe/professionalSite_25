@@ -25,7 +25,7 @@ const Accordion = ({ title, content }: Props) => {
   }
 
   return (
-    <div className="@container/accordion accordion flex flex-col my-5 border-l-8 border-zinc-200">
+    <div className="@container/accordion accordion flex flex-col my-5 border-l-8 border-zinc-200 bg-black/25">
       {
         <div className="bg-redDark/40 p-4 ">
           <h3 className="font-bold not-prose">
@@ -35,7 +35,7 @@ const Accordion = ({ title, content }: Props) => {
             </button>
           </h3>
           <section ref={contentSpace} style={{ maxHeight: `${height}` }} className="overflow-y-hidden transition-max-height duration-500 ease-in-out text-left">
-            {content}
+            <aside className="mt-5">{content}</aside>
           </section>
         </div>
       }
