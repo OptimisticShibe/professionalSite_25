@@ -1,29 +1,123 @@
 ---
-interface Props {
-  columns?: string[];
+import { Image } from "astro:assets";
+
+import externalLink from "@assets/svg/externalLink.svg";
+import githubLogo from "@assets/svg/github.svg";
+import type { ImageMetadata } from "astro";
+
+export interface ImageItem {
+  img: ImageMetadata;
+  imgAlt: string;
 }
 
-// const { columns } = Astro.props;
+export interface TechItem {
+  techName: string;
+  techLogo?: ImageItem;
+}
+export interface GalleryItem {
+  image: ImageItem;
+  caption?: string;
+}
+interface Props {
+  title: string;
+  technologies: TechItem[];
+  githubRepoLink: string;
+  link2: {
+    img: ImageMetadata;
+    text: string;
+  };
+  gallery?: GalleryItem[];
+}
+
+const { title, technologies, githubRepoLink, link2, gallery } = Astro.props;
 ---
 
 <div class:list={["flex flex-col rounded-lg p-5 mx-2 "]}>
-  <main class="divide-y-2 divide-zinc-200">
-    <slot />
+  <main class="divide-y-2 divide-zinc-200 m-0 md:mx-20 lg:mx-32 xl:mx-48">
+    <section>
+      <h1 class="mt-5">{title}</h1>
+      <div class="block md:grid grid-cols-2 gap-5">
+        <summary class="list-none mb-4"> <slot name="summary" /></summary>
+      </div>
+      <nav class="p-1 rounded-lg bg-black/25 divide-y-2 divide-zinc-200 mb-5">
+        <h3 class="ml-2 mt-2 mb-0 text-center">Contents</h3>
+        <div class="grid grid-cols-2 place-items-center">
+          <ul class="flex flex-col list-none flex-wrap p-0 mb-1 mt-0">
+            <li><a href="#links">Links</a></li>
+            <li><a href="#uxFlow">UX Flow</a></li>
+          </ul>
+          <ul class="flex flex-col list-none flex-wrap p-0 mb-1 mt-0">
+            <li><a href="#details">Tech. Details</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+          </ul>
+        </div>
+      </nav>
+    </section>
+
+    <section id="goal">
+      <h3>Goal</h3>
+      <slot name="goal" />
+      <h3>Technologies</h3>
+      <!-- <div class="flex justify-around"> -->
+      <ul class="grid grid-cols-2 xs:grid-cols-3 list-none gap-2 not-prose pb-5">
+        {
+          technologies.map((tech) => {
+            if (tech.techLogo) {
+              return (
+                <li class="p-2 rounded-sm bg-zinc-900 flex gap-2">
+                  <Image src={tech.techLogo?.img} alt={tech.techLogo?.imgAlt} class="w-6 my-auto" />
+                  {tech.techName}
+                </li>
+              );
+            }
+            return <li class="p-2 rounded-sm bg-zinc-900 ">{tech.techName}</li>;
+          })
+        }
+      </ul>
+      <!-- </div> -->
+    </section>
+    <section id="links" class="pb-4">
+      <h3>Links</h3>
+      <div class="flex flex-col md:flex-row justify-between items-center h-full gap-4 my-4">
+        <a
+          class="ring-2 ring-zinc-200 rounded-xl flex items-center p-2 w-full gap-2 hover:brightness-150 bg-zinc-800 no-underline justify-between min-h-[50px]"
+          href={githubRepoLink}
+        >
+          <Image src={githubLogo} alt="github logo" class="not-prose w-8" />
+          <span class="text-xl">Github Repo</span>
+          <Image src={externalLink} alt="external link" class="w-5 ml-1 not-prose" />
+        </a>
+        <a
+          class="ring-2 ring-zinc-200 rounded-xl flex items-center p-2 w-full gap-2 hover:brightness-150 bg-zinc-800 no-underline justify-between min-h-[50px]"
+          href="/"
+        >
+          <Image src={link2.img} alt={"test"} class="not-prose w-10" />
+          <span class="text-xl">{link2.text}</span>
+          <Image src={externalLink} alt="external link" class="w-5 ml-1 not-prose" />
+        </a>
+      </div>
+    </section>
+    <section id="uxFlow">
+      <h3>UX Flow</h3>
+      <slot name="uxFlow" />
+    </section>
+    <section id="details">
+      <slot name="details" />
+    </section>
+    <section id="gallery">
+      <h3>Gallery</h3>
+      <div class="flex flex-col items-center gap-5">
+        {
+          gallery?.map((galleryItem) => {
+            return (
+              <div>
+                <Image src={galleryItem.image.img} alt={galleryItem.image.imgAlt} class="not-prose" />
+                <figcaption>{galleryItem.caption}</figcaption>
+              </div>
+            );
+          })
+        }
+      </div>
+    </section>
   </main>
-  <!-- <div class:list={["col-start-1 col-span-12 lg:col-span-8 row-start-1 row-span-1"]}>
-    <slot name="summary" />
-  </div>
-  <div class="hidden lg:block col-span-4 row-span-1">
-    <slot name="sidebarImg" />
-  </div>
-  <div class="col-span-12 grid grid-cols-2 border-t-2 border-b-zinc-200 py-5 items-center">
-    <h2 class="">Links:</h2>
-    <slot name="links" />
-  </div>
-  <div>
-    <slot name="technical" />
-  </div>
-  <div class="col-span-12">
-    <slot name="gallery" />
-  </div> -->
 </div>

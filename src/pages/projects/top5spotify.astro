@@ -1,8 +1,6 @@
 ---
 import Layout from "@layouts/Layout.astro";
-
-import Accordion from "@components/Accordion";
-import ContentBox from "@components/ContentBox.astro";
+import ContentBox, { type GalleryItem, type TechItem } from "@components/ContentBox.astro";
 import { Image } from "astro:assets";
 
 // Images
@@ -11,140 +9,107 @@ import top5spotify from "@assets/projects/top5spotify/top5spotify.png";
 import top5MobileView from "@assets/projects/top5spotify/topFiveDemoMobile.png";
 import top5DemoMode from "@assets/projects/top5spotify/topFiveDemoMode.png";
 import top5DemoModal from "@assets/projects/top5spotify/topFiveDemoModeModal.png";
+// Logos
+import reactLogo from "@assets/techLogos/reactLogo.png";
+import axiosLogo from "@assets/techLogos/axiosApi.png";
+import bootstrapLogo from "@assets/techLogos/bootstrap.svg";
+import expressLogo from "@assets/techLogos/express-js.svg";
+import herokuLogo from "@assets/techLogos/heroku.svg";
+import nodeLogo from "@assets/techLogos/node-js.svg";
 
 // Icons
-import externalLink from "@assets/svg/externalLink.svg";
-import githubLogo from "@assets/svg/github.svg";
 import top5spotifylogo from "@assets/projects/top5spotify/proto_logo.svg";
+
+const tech: TechItem[] = [
+  { techName: "ReactJS", techLogo: { img: reactLogo, imgAlt: "React" } },
+  { techName: "Axios", techLogo: { img: axiosLogo, imgAlt: "Axios" } },
+  {
+    techName: "ExpressJS",
+    techLogo: {
+      img: expressLogo,
+      imgAlt: "Express",
+    },
+  },
+  { techName: "NodeJS", techLogo: { img: nodeLogo, imgAlt: "NodeJS" } },
+  { techName: "React Bootstrap", techLogo: { img: bootstrapLogo, imgAlt: "bootstrap" } },
+  { techName: "Heroku Deploy", techLogo: { img: herokuLogo, imgAlt: "Heroku" } },
+];
+const link2 = { img: top5spotifylogo, text: "Live App" };
+const gallery: GalleryItem[] = [
+  {
+    image: { img: top5spotify, imgAlt: "Top 5 Main" },
+    caption: "App Main: Authorized User",
+  },
+  {
+    image: { img: top5login, imgAlt: "Top 5 Login Page" },
+    caption: "Login Page (pre-auth)",
+  },
+  {
+    image: { img: top5DemoMode, imgAlt: "Top 5 Demo Mode" },
+    caption: "App Main: Demo Mode (Unauthorized User)",
+  },
+];
 ---
 
 <Layout>
-  <h1 class="text-5xl xs:text-8xl text-center not-prose">🎶🟢🎧📸</h1>
-  <ContentBox>
-    <section>
-      <h2 class="mt-5">Top-Five Spotify</h2>
-      <summary class="list-none mb-4">A hobby project built from the ground up to practice using ReactJS, as well as integrating with a public API</summary>
-      <nav class="p-1 rounded-lg bg-black/25 divide-y-2 divide-zinc-200 mb-5">
-        <h3 class="ml-2 mt-2 mb-0 text-center">Contents</h3>
-        <div class="grid grid-cols-2 place-items-center">
-          <ul class="flex flex-col list-none flex-wrap p-0 mb-1 mt-0">
-            <li><a href="#links">Links</a></li>
-            <li><a href="#uxFlow">UX Flow</a></li>
-          </ul>
-          <ul class="flex flex-col list-none flex-wrap p-0 mb-1 mt-0">
-            <li><a href="#details">Tech. Details</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-          </ul>
-        </div>
-      </nav>
-    </section>
-    <section id="goal">
-      <h3>Goal</h3>
-      <p>To display the user's Top 5 Spotify data in a visually-appealing manner, easily screenshotted for posting online or sharing with friends</p>
-      <h3>Technologies</h3>
-      <div class="flex justify-around">
-        <ul>
-          <li>ReactJS</li>
-          <li>Axios</li>
-          <li>ExpressJS</li>
-        </ul>
-        <ul>
-          <li>NodeJS</li>
-          <li>React Bootstrap</li>
-          <li>Heroku Deploy</li>
-        </ul>
-      </div>
-    </section>
-    <section id="links" class="pb-4">
-      <h3>Links</h3>
-      <div class="flex flex-col justify-between items-center h-full gap-4 my-4">
-        <a
-          class="ring-2 ring-zinc-200 rounded-xl flex items-center p-2 w-full gap-2 hover:brightness-150 bg-zinc-800 no-underline justify-between min-h-[50px]"
-          href="/"
-        >
-          <Image src={githubLogo} alt="github logo" class="not-prose w-8" />
-          <span class="text-xl">Github Repo</span>
-          <Image src={externalLink} alt="external link" class="w-5 ml-1 not-prose" />
-        </a>
-        <a
-          class="ring-2 ring-zinc-200 rounded-xl flex items-center p-2 w-full gap-2 hover:brightness-150 bg-zinc-800 no-underline justify-between min-h-[50px]"
-          href="/"
-        >
-          <Image src={top5spotifylogo} alt="github logo" class="not-prose w-10" />
-          <span class="text-xl">Github Repo</span>
-          <Image src={externalLink} alt="external link" class="w-5 ml-1 not-prose" />
-        </a>
-      </div>
-    </section>
-    <!-- <div class="flex flex-col h-full place-content-center">
-        <Image src={top5spotify} alt={"Top 5 Spotify Homepage"} class="not-prose" />
-        <figcaption>Logged-in User App Homepage</figcaption>
-      </div> -->
-    <section id="uxFlow">
-      <h3>UX Flow</h3>
-      <ol>
-        <li>User clicks "login to Spotify"</li>
-        <li>App sends an authorization code request to Spotify with the client ID and requested scopes</li>
-        <li>User is redirected to Spotify's website to sign in, and allow the app to access specific data in their account</li>
-        <li>Spotify redirects back to TopFiveSpotify with an authorization code</li>
-        <li>
-          Code is caught by custom <strong>useAuth</strong> hook to route through the express server to request an auth token from Spotify through a separate endpoint
-        </li>
-        <li>If successful, app will refresh, and user will see the full app page with their data already loaded</li>
-      </ol>
-    </section>
+  <span class="text-5xl xs:text-8xl text-center not-prose w-full inline-block">🎶🟢🎧📸</span>
+  <ContentBox
+    title="Top-Five Spotify"
+    technologies={tech}
+    githubRepoLink="https://github.com/OptimisticShibe/ThreeJSPersonalSite"
+    link2={link2}
+    gallery={gallery}
+  >
+    <p slot="summary">A hobby project built from the ground up to practice using ReactJS, as well as integrating with a public API</p>
+
+    <p slot="goal">To display the user's Top 5 Spotify data in a visually-appealing manner, easily screenshotted for posting online or sharing with friends</p>
+
+    <ol slot="uxFlow">
+      <li>User clicks "login to Spotify"</li>
+      <li>App sends an authorization code request to Spotify with the client ID and requested scopes</li>
+      <li>User is redirected to Spotify's website to sign in, and allow the app to access specific data in their account</li>
+      <li>Spotify redirects back to TopFiveSpotify with an authorization code</li>
+      <li>
+        Code is caught by custom <strong>useAuth</strong> hook to route through the express server to request an auth token from Spotify through a separate endpoint
+      </li>
+      <li>If successful, app will refresh, and user will see the full app page with their data already loaded</li>
+    </ol>
     <section id="details">
-      <h3>Details</h3>
-      <h4>🔁 Asynchronus API Data Fetching</h4>
-      <section>
-        <p>
-          There are a total of 7 calls to the Spotify API after user authentication:
-          <ul>
-            <li><a href="https://developer.spotify.com/documentation/web-api/reference/get-users-profile">Get User Profile</a></li>
-            <li>
-              Get User's <a href="https://developer.spotify.com/documentation/web-api/reference/get-users-top-artists-and-tracks">Top Artists</a> (x3) and <a
-                href="https://developer.spotify.com/documentation/web-api/reference/get-users-top-artists-and-tracks">Top Tracks</a
-              > (x3)
-            </li>
-          </ul>
-        </p>
-        <p>This app loads all 7 at once in a Promise chain and stores the data in the client's local storage.</p>
-      </section>
-      <h4>📱 Responsive Layout</h4>
-      <section>
-        <p>Using React Bootstrap's breakpoints, the app will shift into the following vertical format:</p>
-        <div class="flex justify-center">
-          <Image src={top5MobileView} alt="Top 5 Mobile View" />
-        </div>
-      </section>
-      <h4>🚧 Demo Mode</h4>
-      <div>
-        <p>
-          <strong>Problem: </strong>Due to changes to Spotify's API rate quota, the app will not work with anyone not explicitly added to my developer
-          whitelist, and will return a <code>403 error</code> if an endpoint call is made after authentication
-        </p>
-        <p>
-          <strong>Solution: </strong> Catching the HTML error and displaying demo data for the user instead, along with an alert banner notifying them of the circumstance
-        </p>
-        <div class="flex justify-center">
-          <Image src={top5DemoModal} alt="Top 5 Demo Modal" />
-        </div>
-      </div>
-    </section>
-    <section id="gallery">
-      <h3>Gallery</h3>
-      <div class="flex flex-col items-center gap-5">
+      <div slot="details">
+        <h4>🔁 Asynchronus API Data Fetching</h4>
+        <section>
+          <p>
+            There are a total of 7 calls to the Spotify API after user authentication:
+            <ul>
+              <li><a href="https://developer.spotify.com/documentation/web-api/reference/get-users-profile">Get User Profile</a></li>
+              <li>
+                Get User's <a href="https://developer.spotify.com/documentation/web-api/reference/get-users-top-artists-and-tracks">Top Artists</a> (x3) and <a
+                  href="https://developer.spotify.com/documentation/web-api/reference/get-users-top-artists-and-tracks">Top Tracks</a
+                > (x3)
+              </li>
+            </ul>
+          </p>
+          <p>This app loads all 7 at once in a Promise chain and stores the data in the client's local storage.</p>
+        </section>
+        <h4>📱 Responsive Layout</h4>
+        <section>
+          <p>Using React Bootstrap's breakpoints, the app will shift into the following vertical format:</p>
+          <div class="flex justify-center">
+            <Image src={top5MobileView} alt="Top 5 Mobile View" />
+          </div>
+        </section>
+        <h4>🚧 Demo Mode</h4>
         <div>
-          <Image src={top5spotify} class="not-prose" alt="Top 5 Main" />
-          <figcaption>App Main: Authorized User</figcaption>
-        </div>
-        <div>
-          <Image src={top5login} class="not-prose" alt="Top 5 Login" />
-          <figcaption>Login Page (pre-auth)</figcaption>
-        </div>
-        <div>
-          <Image src={top5DemoMode} class="not-prose" alt="Top 5 Demo Mode" />
-          <figcaption>App Main: Demo Mode (Unauthorized User)</figcaption>
+          <p>
+            <strong>Problem: </strong>Due to changes to Spotify's API rate quota, the app will not work with anyone not explicitly added to my developer
+            whitelist, and will return a <code>403 error</code> if an endpoint call is made after authentication
+          </p>
+          <p>
+            <strong>Solution: </strong> Catching the HTML error and displaying demo data for the user instead, along with an alert banner notifying them of the circumstance
+          </p>
+          <div class="flex justify-center">
+            <Image src={top5DemoModal} alt="Top 5 Demo Modal" />
+          </div>
         </div>
       </div>
     </section>
