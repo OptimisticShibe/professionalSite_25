@@ -9,17 +9,15 @@ import { navLinks } from "./NavLinks.ts";
   <a href="/" class="text-3xl flex items-center font-bold self-center">
     <h2>{name}</h2>
   </a>
-  <div class="hidden md:flex">
-    <ul class="flex gap-5 font-medium">
-      {
-        navLinks.map((link) => {
-          return (
-            <li class="hover:scale-[1.15] transition duration-300 p-2 font-bold">
-              <a href={link.url}>{link.label}</a>
-            </li>
-          );
-        })
-      }
-    </ul>
+  <div class="hidden md:flex gap-5 font-medium">
+    {
+      navLinks.map((link) => {
+        return (
+          <a href={link.url} class="hover:scale-[1.15] transition duration-300 p-2 font-bold hover:cursor-pointer">
+            {link.label}
+          </a>
+        );
+      })
+    }
   </div>
 </nav>

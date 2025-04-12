@@ -1,6 +1,6 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import ContentBox, { type GalleryItem, type TechItem } from "@components/ContentBox.astro";
+import ContentBox, { type GalleryItem, type TechItem } from "@components/ProjectPage.astro";
 import { Image } from "astro:assets";
 
 // Images
@@ -19,6 +19,7 @@ import nodeLogo from "@assets/techLogos/node-js.svg";
 
 // Icons
 import top5spotifylogo from "@assets/projects/top5spotify/proto_logo.svg";
+import ProjectPage from "@components/ProjectPage.astro";
 
 const tech: TechItem[] = [
   { techName: "ReactJS", techLogo: { img: reactLogo, imgAlt: "React" } },
@@ -53,7 +54,7 @@ const gallery: GalleryItem[] = [
 
 <Layout>
   <span class="text-5xl xs:text-8xl text-center not-prose w-full inline-block">🎶🟢🎧📸</span>
-  <ContentBox
+  <ProjectPage
     title="Top-Five Spotify"
     technologies={tech}
     githubRepoLink="https://github.com/OptimisticShibe/ThreeJSPersonalSite"
@@ -113,5 +114,5 @@ const gallery: GalleryItem[] = [
         </div>
       </div>
     </section>
-  </ContentBox>
+  </ProjectPage>
 </Layout>

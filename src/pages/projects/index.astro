@@ -4,6 +4,17 @@ import Layout from "@layouts/Layout.astro";
 ---
 
 <Layout>
-  <h1>Projects</h1>
-  <ContentBox> Test Project </ContentBox>
+  <ContentBox>
+    <h1>Projects</h1>
+    <div class="grid grid-cols-12">
+      <section class="col-span-9 col-start-1">
+        <h2>Top 5 Spotify</h2>
+        <summary class="list-none">A hobby project built from the ground up to practice using ReactJS, as well as integrating with a public API</summary>
+      </section>
+      <section class="col-span-9 col-end-13">
+        <h2>2nd Col Test</h2>
+        <summary class="list-none">A hobby project built from the ground up to practice using ReactJS, as well as integrating with a public API</summary>
+      </section>
+    </div>
+  </ContentBox>
 </Layout>
