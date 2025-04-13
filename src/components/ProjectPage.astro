@@ -9,6 +9,7 @@ import ContentBox from "./ContentBox.astro";
 export interface ImageItem {
   img: ImageMetadata;
   imgAlt: string;
+  invert?: boolean;
 }
 
 export interface TechItem {
@@ -26,6 +27,7 @@ interface Props {
   link2: {
     img: ImageMetadata;
     text: string;
+    url: string;
   };
   gallery?: GalleryItem[];
 }
@@ -65,7 +67,7 @@ const { title, technologies, githubRepoLink, link2, gallery } = Astro.props;
           if (tech.techLogo) {
             return (
               <li class="p-2 rounded-sm bg-zinc-900 flex gap-2">
-                <Image src={tech.techLogo?.img} alt={tech.techLogo?.imgAlt} class="w-6 my-auto" />
+                <Image src={tech.techLogo?.img} alt={tech.techLogo?.imgAlt} class:list={["w-6 my-auto", `${tech.techLogo.invert ? "invert" : ""}`]} />
                 {tech.techName}
               </li>
             );
@@ -89,7 +91,7 @@ const { title, technologies, githubRepoLink, link2, gallery } = Astro.props;
       </a>
       <a
         class="ring-2 ring-zinc-200 rounded-xl flex items-center p-2 w-full gap-2 hover:brightness-150 bg-zinc-800 no-underline justify-between min-h-[50px]"
-        href="/"
+        href={link2.url}
       >
         <Image src={link2.img} alt={"test"} class="not-prose w-10" />
         <span class="text-xl">{link2.text}</span>

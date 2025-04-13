@@ -1,6 +1,6 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import ContentBox, { type GalleryItem, type TechItem } from "@components/ProjectPage.astro";
+import { type GalleryItem, type TechItem } from "@components/ProjectPage.astro";
 import { Image } from "astro:assets";
 
 // Images
@@ -35,7 +35,7 @@ const tech: TechItem[] = [
   { techName: "React Bootstrap", techLogo: { img: bootstrapLogo, imgAlt: "bootstrap" } },
   { techName: "Heroku Deploy", techLogo: { img: herokuLogo, imgAlt: "Heroku" } },
 ];
-const link2 = { img: top5spotifylogo, text: "Live App" };
+const link2 = { img: top5spotifylogo, text: "Live App", url: "/" };
 const gallery: GalleryItem[] = [
   {
     image: { img: top5spotify, imgAlt: "Top 5 Main" },
@@ -53,7 +53,7 @@ const gallery: GalleryItem[] = [
 ---
 
 <Layout>
-  <span class="text-5xl xs:text-8xl text-center not-prose w-full inline-block">🎶🟢🎧📸</span>
+  <span class="text-5xl xs:text-8xl text-center not-prose w-full inline-block">🎶🟢🎧</span>
   <ProjectPage
     title="Top-Five Spotify"
     technologies={tech}

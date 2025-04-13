@@ -1,0 +1,21 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+interface Props {
+  title: string;
+  summary: string;
+  link: string;
+  image?: ImageMetadata;
+}
+
+const { title, summary, link, image } = Astro.props;
+---
+
+<section class="col-span-9 odd:col-start-1 even:col-end-13 p-5 border-2 border-zinc-200 rounded-md md:prose-lg lg:prose-xl flex flex-col gap-5">
+  <a href={link} class="not-prose underline decoration-2 inline-block">
+    <h2 class="text-[var(--tw-prose-headings)] text-2xl">{title}</h2>
+  </a>
+  <summary class="list-none">{summary}</summary>
+  {image && <Image src={image} alt={`${title} preview image`} class="not-prose" />}
+</section>
