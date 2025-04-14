@@ -13,7 +13,7 @@ interface Props {
 const { title, summary, link, emojis, image } = Astro.props;
 ---
 
-<section class="flex flex-col sm:flex-row sm:odd:flex-row-reverse sm:not-last:pb-8 last:border-b-2 border-gold">
+<section class="flex flex-col sm:flex-row sm:odd:flex-row-reverse pb-8 last:border-b-2 border-gold">
   <aside class="flex flex-row sm:flex-col justify-around col-span-3 items-center text-6xl sm:basis-1/5 sm:mb-0 mb-4">
     {emojis.map((emoji) => <span>{emoji}</span>)}
   </aside>
