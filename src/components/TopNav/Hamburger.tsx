@@ -10,12 +10,12 @@ const Hamburger = () => {
   };
 
   return (
-    <nav className="md:hidden py-2 bg-zinc-900 w-full flex flex-col justify-between not-prose items-center">
+    <nav className="md:hidden pt-2 bg-zinc-900 w-full flex flex-col justify-between not-prose items-center">
       <div className="flex justify-between w-full px-5">
         <a href="/">
-          <h2 className="text-2xl">{name}</h2>
+          <h2 className="text-2xl border-l-2 border-b-2 ml-2 pl-2 border-gold">{name}</h2>
         </a>
-        <button onClick={handleClick} className="hover:cursor-pointer justify-self-end">
+        <button onClick={handleClick} className="hover:cursor-pointer justify-self-end border-r-2 border-t-2 border-gold p-2 mr-2">
           <span
             className={`bg-zinc-200 block transition-all duration-300 ease-out
                         h-0.5 w-6 rounded-sm ${hamburgerOpen ? "rotate-45 translate-y-1" : "-translate-y-0.5"}`}
@@ -30,12 +30,15 @@ const Hamburger = () => {
           ></span>
         </button>
       </div>
-      <section className={` duration-300 ease-in-out w-full overflow-y-hidden flex justify-around ${hamburgerOpen ? "max-h-20" : "max-h-0"}`}>
+      <section className={` duration-300 ease-in-out w-full overflow-y-hidden flex justify-around mt-4 px-4  ${hamburgerOpen ? "max-h-20 pb-2" : "max-h-0"}`}>
         {navLinks.map((link, i) => {
           return (
-            <a className="hover:scale-[1.15] transition duration-300 p-2 font-bold" key={i} href={link.url}>
-              {link.label}
-            </a>
+            <>
+              <a className="hover:scale-[1.15] transition duration-300 p-2 font-bold grow text-center" key={i} href={link.url}>
+                {link.label}
+              </a>
+              <span className="not-last:border-r-2 border-gold" />
+            </>
           );
         })}
       </section>

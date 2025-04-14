@@ -33,33 +33,36 @@ interface Props {
 }
 
 const { title, technologies, githubRepoLink, link2, gallery } = Astro.props;
+const isGallery = gallery && gallery.length > 0;
 ---
 
 <ContentBox>
+  <h1 class="mt-5 border-gold pl-2">{title}</h1>
   <section>
-    <h1 class="mt-5">{title}</h1>
-    <div class="block md:grid grid-cols-2 gap-5">
-      <summary class="list-none mb-4"> <slot name="summary" /></summary>
-      <nav class="p-1 rounded-lg bg-black/25 divide-y-2 divide-zinc-200 mb-5 not-prose">
-        <h3 class="ml-2 mt-2 text-center text-2xl mb-4 text-[var(--tw-prose-headings)]">Contents</h3>
-        <div class="grid grid-cols-2 place-items-center text-lg">
-          <ul class="flex flex-col list-none flex-wrap p-0 mb-1 mt-0">
-            <li class="underline decoration-2"><a href="#links">Links</a></li>
-            <li class="underline decoration-2"><a href="#uxFlow">UX Flow</a></li>
-          </ul>
-          <ul class="flex flex-col list-none flex-wrap p-0 mb-1 mt-0">
-            <li class="underline decoration-2"><a href="#details">Tech. Details</a></li>
-            <li class="underline decoration-2"><a href="#gallery">Gallery</a></li>
-          </ul>
+    <div class="flex flex-col md:grid grid-cols-2 gap-5 mb-5">
+      <summary class="list-none not-prose my-auto"> <slot name="summary" /></summary>
+      <nav class="p-1 rounded-lg bg-black/25 divide-y-2 divide-zinc-200 md:my-auto not-prose flex flex-col">
+        <h2 class="ml-2 mt-2 text-center text-2xl mb-4 text-[var(--tw-prose-headings)]">Contents</h2>
+        <div class="grid grid-cols-2 grid-rows-2 items-center text-xl grow min-h-24">
+          <a class="underline decoration-2 ml-[25%]" href="#links">Links</a>
+          <a class="underline decoration-2 ml-[25%]" href="#uxFlow">UX Flow</a>
+          <a class="underline decoration-2 ml-[25%]" href="#details">Tech Details</a>
+          {
+            isGallery && (
+              <a class="underline decoration-2 ml-[25%]" href="#gallery">
+                Gallery
+              </a>
+            )
+          }
         </div>
       </nav>
     </div>
   </section>
 
   <section id="goal">
-    <h3>Goal</h3>
+    <h2 class="border-l-2 border-gold pl-2">Goals</h2>
     <slot name="goal" />
-    <h3>Technologies</h3>
+    <h2 class="border-l-2 border-gold pl-2">Technologies</h2>
     <!-- <div class="flex justify-around"> -->
     <ul class="grid grid-cols-2 xs:grid-cols-3 list-none gap-2 not-prose pb-5">
       {
@@ -76,13 +79,12 @@ const { title, technologies, githubRepoLink, link2, gallery } = Astro.props;
         })
       }
     </ul>
-    <!-- </div> -->
   </section>
   <section id="links" class="pb-4">
-    <h3>Links</h3>
-    <div class="flex flex-col md:flex-row justify-between items-center h-full gap-4 my-4">
+    <h2 class="border-l-2 border-gold pl-2">Links</h2>
+    <div class="flex flex-col md:flex-row justify-around items-center h-full gap-4 my-4">
       <a
-        class="ring-2 ring-zinc-200 rounded-xl flex items-center p-2 w-full gap-2 hover:brightness-150 bg-zinc-800 no-underline justify-between min-h-[50px]"
+        class="max-w-80 ring-2 ring-gold rounded-xl flex items-center p-2 w-full gap-2 hover:bg-zinc-700 bg-zinc-800 decoration-2 justify-between min-h-16 decoration-zinc-200"
         href={githubRepoLink}
       >
         <Image src={githubLogo} alt="github logo" class="not-prose w-8" />
@@ -90,7 +92,7 @@ const { title, technologies, githubRepoLink, link2, gallery } = Astro.props;
         <Image src={externalLink} alt="external link" class="w-5 ml-1 not-prose" />
       </a>
       <a
-        class="ring-2 ring-zinc-200 rounded-xl flex items-center p-2 w-full gap-2 hover:brightness-150 bg-zinc-800 no-underline justify-between min-h-[50px]"
+        class="max-w-80 ring-2 ring-gold rounded-xl flex items-center p-2 w-full gap-2 hover:bg-zinc-700 bg-zinc-800 decoration-2 justify-between min-h-16 decoration-zinc-200"
         href={link2.url}
       >
         <Image src={link2.img} alt={"test"} class="not-prose w-10" />
@@ -100,25 +102,28 @@ const { title, technologies, githubRepoLink, link2, gallery } = Astro.props;
     </div>
   </section>
   <section id="uxFlow">
-    <h3>UX Flow</h3>
+    <h2 class="border-l-2 border-gold pl-2">UX Flow</h2>
     <slot name="uxFlow" />
   </section>
   <section id="details">
+    <h2 class="border-l-2 border-gold pl-2">Details</h2>
     <slot name="details" />
   </section>
-  <section id="gallery">
-    <h3>Gallery</h3>
-    <div class="flex flex-col items-center gap-5">
-      {
-        gallery?.map((galleryItem) => {
-          return (
-            <div>
-              <Image src={galleryItem.image.img} alt={galleryItem.image.imgAlt} class="not-prose" />
-              <figcaption>{galleryItem.caption}</figcaption>
-            </div>
-          );
-        })
-      }
-    </div>
-  </section>
+  {
+    isGallery && (
+      <section id="gallery">
+        <h2 class="border-l-2 border-gold pl-2">Gallery</h2>
+        <div class="flex flex-col items-center gap-5">
+          {gallery?.map((galleryItem) => {
+            return (
+              <div class="last:border-b-2 border-gold last:pb-4">
+                <Image src={galleryItem.image.img} alt={galleryItem.image.imgAlt} class="not-prose " />
+                <figcaption>{galleryItem.caption}</figcaption>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+    )
+  }
 </ContentBox>

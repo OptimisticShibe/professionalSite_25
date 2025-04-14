@@ -4,11 +4,9 @@ import { type GalleryItem, type TechItem } from "@components/ProjectPage.astro";
 import { Image } from "astro:assets";
 
 // Images
-import top5login from "@assets/projects/top5spotify/top5login.png";
-import top5spotify from "@assets/projects/top5spotify/top5spotify.png";
-import top5MobileView from "@assets/projects/top5spotify/topFiveDemoMobile.png";
-import top5DemoMode from "@assets/projects/top5spotify/topFiveDemoMode.png";
-import top5DemoModal from "@assets/projects/top5spotify/topFiveDemoModeModal.png";
+import siteMain from "@assets/projects/threeJsPortfolio/threeJsPortfolioMain.png";
+import spotify from "@assets/projects/threeJsPortfolio/threeJsSpotify.png";
+import coffee from "@assets/projects/threeJsPortfolio/threeJsCoffee.png";
 // Logos
 import html from "@assets/techLogos/html.png";
 import css from "@assets/techLogos/css.png";
@@ -36,19 +34,19 @@ const tech: TechItem[] = [
   { techName: "ThreeJS", techLogo: { img: threeJsLogo, imgAlt: "threeJsLogo", invert: true } },
   { techName: "Vercel Deploy", techLogo: { img: vercelLogo, imgAlt: "vercelLogo", invert: true } },
 ];
-const link2 = { img: top5spotifylogo, text: "Live App", url: "/" };
+const link2 = { img: top5spotifylogo, text: "Live App", url: "https://v1.rafiqramadan.com" };
 const gallery: GalleryItem[] = [
   {
-    image: { img: top5spotify, imgAlt: "Top 5 Main" },
-    caption: "App Main: Authorized User",
+    image: { img: siteMain, imgAlt: "Site Landing" },
+    caption: "Site landing page",
   },
   {
-    image: { img: top5login, imgAlt: "Top 5 Login Page" },
-    caption: "Login Page (pre-auth)",
+    image: { img: spotify, imgAlt: "Spotify Project Page" },
+    caption: "Spotify project page",
   },
   {
-    image: { img: top5DemoMode, imgAlt: "Top 5 Demo Mode" },
-    caption: "App Main: Demo Mode (Unauthorized User)",
+    image: { img: coffee, imgAlt: "coffee section" },
+    caption: "Personal coffee hobby section",
   },
 ];
 ---
@@ -63,59 +61,30 @@ const gallery: GalleryItem[] = [
     gallery={gallery}
   >
     <p slot="summary">
-      AA vaporwave & coffee-themed personal/portfolio website created with pure vanilla HTML, CSS, JS except the background, which is crafted by ThreeJS, a
-      Javascript library for rendering and animated 3D models in the browser
+      A vaporwave & coffee-themed personal/portfolio website created with pure vanilla HTML, CSS, JS except the background. The background is crafted by
+      ThreeJS, a Javascript library for rendering and animated 3D models in the browser
     </p>
 
-    <p slot="goal">To display the user's Top 5 Spotify data in a visually-appealing manner, easily screenshotted for posting online or sharing with friends</p>
+    <ol slot="goal">
+      <li>To test my ability to code a stylish, simple webpage without any external packages to help</li>
+      <li>Experiment with using 3D models, especially in regards to camera and lighting manipulation</li>
+      <li>Create a personal website for hosting personal projects and some personal info</li>
+      <li>Practice using script-based javascript, managing loading states etc. without convenience of robust packages</li>
+    </ol>
 
     <ol slot="uxFlow">
-      <li>User clicks "login to Spotify"</li>
-      <li>App sends an authorization code request to Spotify with the client ID and requested scopes</li>
-      <li>User is redirected to Spotify's website to sign in, and allow the app to access specific data in their account</li>
-      <li>Spotify redirects back to TopFiveSpotify with an authorization code</li>
+      <li>Vaporwave background loads immediately. Loading spinner appears while canvas element loads in background</li>
+      <li>Spinning latte mug appears. Main entry box with "Rafiq Ramadan" and info fades into view</li>
       <li>
-        Code is caught by custom <strong>useAuth</strong> hook to route through the express server to request an auth token from Spotify through a separate endpoint
+        User can scroll down, or click down-arrow to smooth-scroll to "About Me" section. OR user can click any one of 6 links on landing element to scroll or
+        navigate away
       </li>
-      <li>If successful, app will refresh, and user will see the full app page with their data already loaded</li>
+      <li>User may scroll down and read. Only interactable component beyond smooth-scroll is accordion elements</li>
+      <li>As user scrolls, ThreeJS 3D camera pans out—latte mug recedes into distance, coffee beans and coffee machine swing into view</li>
     </ol>
     <section id="details">
       <div slot="details">
         <h4>🔁 Asynchronus API Data Fetching</h4>
-        <section>
-          <p>
-            There are a total of 7 calls to the Spotify API after user authentication:
-            <ul>
-              <li><a href="https://developer.spotify.com/documentation/web-api/reference/get-users-profile">Get User Profile</a></li>
-              <li>
-                Get User's <a href="https://developer.spotify.com/documentation/web-api/reference/get-users-top-artists-and-tracks">Top Artists</a> (x3) and <a
-                  href="https://developer.spotify.com/documentation/web-api/reference/get-users-top-artists-and-tracks">Top Tracks</a
-                > (x3)
-              </li>
-            </ul>
-          </p>
-          <p>This app loads all 7 at once in a Promise chain and stores the data in the client's local storage.</p>
-        </section>
-        <h4>📱 Responsive Layout</h4>
-        <section>
-          <p>Using React Bootstrap's breakpoints, the app will shift into the following vertical format:</p>
-          <div class="flex justify-center">
-            <Image src={top5MobileView} alt="Top 5 Mobile View" />
-          </div>
-        </section>
-        <h4>🚧 Demo Mode</h4>
-        <div>
-          <p>
-            <strong>Problem: </strong>Due to changes to Spotify's API rate quota, the app will not work with anyone not explicitly added to my developer
-            whitelist, and will return a <code>403 error</code> if an endpoint call is made after authentication
-          </p>
-          <p>
-            <strong>Solution: </strong> Catching the HTML error and displaying demo data for the user instead, along with an alert banner notifying them of the circumstance
-          </p>
-          <div class="flex justify-center">
-            <Image src={top5DemoModal} alt="Top 5 Demo Modal" />
-          </div>
-        </div>
       </div>
     </section>
   </ProjectPage>

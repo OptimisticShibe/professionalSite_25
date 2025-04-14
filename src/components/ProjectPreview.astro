@@ -6,16 +6,22 @@ interface Props {
   title: string;
   summary: string;
   link: string;
+  emojis: string[];
   image?: ImageMetadata;
 }
 
-const { title, summary, link, image } = Astro.props;
+const { title, summary, link, emojis, image } = Astro.props;
 ---
 
-<section class="col-span-9 odd:col-start-1 even:col-end-13 p-5 border-2 border-zinc-200 rounded-md md:prose-lg lg:prose-xl flex flex-col gap-5">
-  <a href={link} class="not-prose underline decoration-2 inline-block">
-    <h2 class="text-[var(--tw-prose-headings)] text-2xl">{title}</h2>
-  </a>
-  <summary class="list-none">{summary}</summary>
-  {image && <Image src={image} alt={`${title} preview image`} class="not-prose" />}
+<section class="flex flex-col sm:flex-row sm:odd:flex-row-reverse sm:not-last:pb-8 last:border-b-2 border-gold">
+  <aside class="flex flex-row sm:flex-col justify-around col-span-3 items-center text-6xl sm:basis-1/5">
+    {emojis.map((emoji) => <span>{emoji}</span>)}
+  </aside>
+  <div class="col-span-9 p-0 md:p-10 border-zinc-200 rounded-md sm:prose-lg lg:prose-xl flex flex-col gap-5 sm:basis-4/5 mt-8 md:mt-0">
+    <a href={link} class="not-prose underline decoration-2 inline-block">
+      <h2 class="text-[var(--tw-prose-headings)] text-2xl xs:text-3xl">{title}</h2>
+    </a>
+    <summary class="list-none">{summary}</summary>
+    {image && <Image src={image} alt={`${title} preview image`} class="not-prose" />}
+  </div>
 </section>

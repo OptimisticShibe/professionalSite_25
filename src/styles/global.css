@@ -8,6 +8,7 @@
 
 @theme {
   --color-text-main: var(--color-zinc-200);
+  --color-gold: #eab308;
   /* Breakpoints */
   --breakpoint-xs: 545px;
   --breakpoint-3xl: 2000px;
@@ -20,6 +21,9 @@
 }
 .hamburger {
   filter: invert(93%) sepia(9%) saturate(154%) hue-rotate(181deg) brightness(95%) contrast(83%);
+}
+.goldFilter {
+  filter: invert(62%) sepia(75%) saturate(928%) hue-rotate(7deg) brightness(170%) contrast(94%);
 }
 
 @font-face {
@@ -48,7 +52,7 @@
 
 html {
   font-family: "Roboto-VariableFont_wdth,wght", sans-serif;
-  scrollbar-color: #eab308 #000;
+  scrollbar-color: var(--color-gold) #000;
   background-color: var(--color-zinc-800);
 }
 

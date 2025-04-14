@@ -6,16 +6,17 @@ import { navLinks } from "./NavLinks.ts";
 
 <Hamburger client:load />
 <nav class="hidden py-2 bg-zinc-900 w-full md:flex justify-between not-prose items-center px-5">
-  <a href="/" class="text-3xl flex items-center font-bold self-center">
+  <a href="/" class="text-3xl flex items-center font-bold self-center border-l-2 border-b-2 border-gold pl-2">
     <h2>{name}</h2>
   </a>
-  <div class="hidden md:flex gap-5 font-medium">
+  <div class="hidden md:flex font-medium  mr-4">
     {
       navLinks.map((link) => {
         return (
-          <a href={link.url} class="hover:scale-[1.15] transition duration-300 p-2 font-bold hover:cursor-pointer">
+          <a href={link.url} class="hover:scale-[1.15] transition duration-300 px-2 font-bold hover:cursor-pointer ">
             {link.label}
           </a>
+          <span class="not-last:border-r-2 border-gold" />
         );
       })
     }

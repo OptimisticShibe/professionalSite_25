@@ -1,0 +1,75 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { type GalleryItem, type TechItem } from "@components/ProjectPage.astro";
+import { Image } from "astro:assets";
+
+// Images
+
+// Logos
+import reactLogo from "@assets/techLogos/reactLogo.png";
+import nodeLogo from "@assets/techLogos/node-js.svg";
+import astro from "@assets/techLogos/astro.svg";
+import deno from "@assets/techLogos/deno.svg";
+import tailwind from "@assets/techLogos/tailwindLogo.png";
+import vite from "@assets/techLogos/vite.png";
+// Icons
+import top5spotifylogo from "@assets/projects/top5spotify/proto_logo.svg";
+import ProjectPage from "@components/ProjectPage.astro";
+
+const tech: TechItem[] = [
+  { techName: "AstroJS", techLogo: { img: astro, imgAlt: "astro" } },
+  { techName: "TailwindCSS", techLogo: { img: tailwind, imgAlt: "tailwind" } },
+  {
+    techName: "React",
+    techLogo: {
+      img: reactLogo,
+      imgAlt: "React",
+    },
+  },
+  { techName: "NodeJS", techLogo: { img: nodeLogo, imgAlt: "NodeJS" } },
+  { techName: "Deno Deploy", techLogo: { img: deno, imgAlt: "deno" } },
+  { techName: "Vite", techLogo: { img: vite, imgAlt: "vite" } },
+];
+const link2 = { img: top5spotifylogo, text: "Live App", url: "/" };
+const gallery: GalleryItem[] = [];
+---
+
+<Layout>
+  <span class="text-5xl xs:text-8xl text-center not-prose w-full inline-block">🚀🍃🎨</span>
+  <ProjectPage
+    title="Static Site Designs"
+    technologies={tech}
+    githubRepoLink="https://github.com/OptimisticShibe/professionalSite_25"
+    link2={link2}
+    gallery={gallery}
+  >
+    <p slot="summary">
+      Various web-design projects, utilizing static-site generator <strong>AstroJS</strong> and <strong>TailwindCSS</strong> for the heavy lifting of programatic
+      styling of content, as well as coding syntactic-sugar (as opposed to the static HTML and CSS methodology <a
+        href="/projects/threeJsPortfolio"
+        class="font-medium underline decoration-2">I used previously</a
+      >)
+      <br />
+      <strong>Note:</strong> Although I built a 2nd site with these same technologies other than this one, I cannot share any information beyond these photos at
+      this time due to privacy concerns
+    </p>
+
+    <ol slot="goal">
+      <li>Create beautiful, responsive personal webpages</li>
+      <li>Maximize (reasonable) code abstraction (e.g. component-driven design)</li>
+      <li>Utilize compiled Markdown at a larger scale</li>
+      <li>Learn + familiarize self with TailwindCSS for the first time</li>
+      <li>Explore the benefits and limitations of coding with a React-driven style within a static-site environment</li>
+    </ol>
+
+    <ol slot="uxFlow">
+      <li>Homepage landing displays simple Top Nav and large Hero display with my information.</li>
+      <li>User may navigate to any of three locations: resume PDF, Github profile, or Projects page</li>
+      <li>On projects page, single page displays summaries of my coding projects, with links to full individual pages of each</li>
+    </ol>
+    <div slot="details">
+      <h3>🔁 Asynchronus API Data Fetching</h3>
+      <section>Fill in later</section>
+    </div>
+  </ProjectPage>
+</Layout>

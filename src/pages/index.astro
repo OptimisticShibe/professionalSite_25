@@ -2,14 +2,12 @@
 import { Image } from "astro:assets";
 
 import RegalBadgeTransparent from "@assets/RegalBadgeTransparent.png";
-import Ristretto from "@assets/RistrettoHeadshot_Talikira.png";
 import Layout from "@layouts/Layout.astro";
 ---
 
 <Layout centered={true}>
   <main class="grid grid-cols-12 place-content-center h-full my-10">
     <div class="items-center justify-around text-center col-span-10 col-start-2 block md:grid grid-cols-2 auto-rows-auto">
-      <!-- <div class="items-center justify-around border-zinc-100 shadow-[var(--blur-shadow)] rounded-2xl text-center p-5 bg-zinc-900/90 col-span-10 col-start-2"> -->
       <h1 class="flex md:hidden flex-col mb-2 text-6xl xs:text-8xl col-start-1">Rafiq<br />Ramadan</h1>
       <div class="md:flex hidden flex-col row-span-2 h-full justify-center">
         <h1 class="flex flex-col mb-2 text-7xl lg:text-8xl col-start-1">Rafiq<br />Ramadan</h1>
@@ -19,7 +17,6 @@ import Layout from "@layouts/Layout.astro";
           <span><em>Chicago, IL</em></span>
         </h2>
       </div>
-      <!-- <div class="flex flex-col place-content-center text-center"> -->
       <div class="flex place-content-center not-prose order-2 md:order-3 min-w-none content-center items-center w-full ml-5 col-start-2 row-span-2 row-start-1">
         <Image src={RegalBadgeTransparent} alt="Regal Transparent" class="md:min-w-[400px] max-w-[75%]" />
       </div>
