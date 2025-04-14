@@ -2,6 +2,12 @@
 import Footer from "@components/Footer.astro";
 import TopNav from "@components/TopNav/TopNav.astro";
 import { name } from "src/constants";
+
+interface Props {
+  homepage?: boolean;
+}
+
+const { homepage } = Astro.props;
 ---
 
 <!doctype html>
@@ -18,6 +24,7 @@ import { name } from "src/constants";
     <div class:list={["min-h-[100vh] w-full prose prose-invert"]}>
       <TopNav />
       <slot />
+      {!homepage && <Footer />}
     </div>
   </body>
 </html>
