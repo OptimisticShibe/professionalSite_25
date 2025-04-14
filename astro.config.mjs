@@ -11,4 +11,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   integrations: [react()],
+  redirects: {
+    "/resume": "/resume.pdf",
+  },
 });
