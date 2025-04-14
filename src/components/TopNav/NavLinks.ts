@@ -5,15 +5,15 @@ interface navLink {
 
 export const navLinks: navLink[] = [
   {
+    label: "Projects",
+    url: "/projects",
+  },
+  {
     label: "Resume",
     url: "/resume",
   },
   {
     label: "Github",
     url: "https://github.com/OptimisticShibe/professionalSite_25",
-  },
-  {
-    label: "Projects",
-    url: "/projects",
   },
 ];

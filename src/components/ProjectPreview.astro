@@ -14,10 +14,10 @@ const { title, summary, link, emojis, image } = Astro.props;
 ---
 
 <section class="flex flex-col sm:flex-row sm:odd:flex-row-reverse sm:not-last:pb-8 last:border-b-2 border-gold">
-  <aside class="flex flex-row sm:flex-col justify-around col-span-3 items-center text-6xl sm:basis-1/5">
+  <aside class="flex flex-row sm:flex-col justify-around col-span-3 items-center text-6xl sm:basis-1/5 sm:mb-0 mb-4">
     {emojis.map((emoji) => <span>{emoji}</span>)}
   </aside>
-  <div class="col-span-9 p-0 md:p-10 border-zinc-200 rounded-md sm:prose-lg lg:prose-xl flex flex-col gap-5 sm:basis-4/5 mt-8 md:mt-0">
+  <div class="px-0 sm:px-10 border-zinc-200 rounded-md sm:prose-lg lg:prose-xl flex flex-col gap-5 sm:basis-4/5 md:mt-0">
     <a href={link} class="not-prose underline decoration-2 inline-block">
       <h2 class="text-[var(--tw-prose-headings)] text-2xl xs:text-3xl">{title}</h2>
     </a>

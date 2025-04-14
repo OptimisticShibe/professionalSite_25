@@ -5,22 +5,25 @@ import RegalBadgeTransparent from "@assets/RegalBadgeTransparent.png";
 import Layout from "@layouts/Layout.astro";
 ---
 
-<Layout centered={true}>
-  <main class="grid grid-cols-12 place-content-center h-full my-10">
-    <div class="items-center justify-around text-center col-span-10 col-start-2 block md:grid grid-cols-2 auto-rows-auto">
-      <h1 class="flex md:hidden flex-col mb-2 text-6xl xs:text-8xl col-start-1">Rafiq<br />Ramadan</h1>
-      <div class="md:flex hidden flex-col row-span-2 h-full justify-center">
-        <h1 class="flex flex-col mb-2 text-7xl lg:text-8xl col-start-1">Rafiq<br />Ramadan</h1>
-        <h2 class="md:order-2 divide-y-2 divide-zinc-200/70 col-start-1 md:block hidden mt-5">
-          <span><em>Frontend Engineer</em></span>
-          <br />
-          <span><em>Chicago, IL</em></span>
-        </h2>
+<Layout>
+  <!-- <main class="grid grid-cols-12 place-content-center mt-[15%]"> -->
+  <main class="flex place-content-center mt-12 md:mt-36">
+    <div class="items-center justify-center text-center col-span-10 col-start-2 flex flex-col md:grid grid-cols-2 mx-5">
+      <div class="flex place-content-center">
+        <h1 class="flex md:hidden flex-col mb-2 text-5xl xs:text-6xl col-start-1">Rafiq<br />Ramadan</h1>
+        <div class="md:flex hidden flex-col row-span-2 h-full justify-center">
+          <h1 class="flex flex-col mb-2 text-6xl lg:text-7xl col-start-1">Rafiq<br />Ramadan</h1>
+          <h2 class="md:order-2 divide-y-2 divide-gold col-start-1 md:block hidden mt-5">
+            <span><em>Frontend Engineer</em></span>
+            <br />
+            <span><em>Chicago, IL</em></span>
+          </h2>
+        </div>
       </div>
-      <div class="flex place-content-center not-prose order-2 md:order-3 min-w-none content-center items-center w-full ml-5 col-start-2 row-span-2 row-start-1">
-        <Image src={RegalBadgeTransparent} alt="Regal Transparent" class="md:min-w-[400px] max-w-[75%]" />
+      <div class="flex not-prose place-content-center max-w-[80%]">
+        <Image src={RegalBadgeTransparent} alt="Regal Transparent" class="md:min-w-[300px]" />
       </div>
-      <h2 class="md:order-2 divide-y-2 divide-zinc-200/70 col-start-1 block md:hidden mt-5">
+      <h2 class="divide-y-2 divide-zinc-200/70 col-start-1 block md:hidden mt-5">
         <span><em>Frontend Engineer</em></span>
         <br />
         <span><em>Chicago, IL</em></span>

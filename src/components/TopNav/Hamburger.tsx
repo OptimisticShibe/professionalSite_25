@@ -10,8 +10,8 @@ const Hamburger = () => {
   };
 
   return (
-    <nav className="md:hidden pt-2 bg-zinc-900 w-full flex flex-col justify-between not-prose items-center">
-      <div className="flex justify-between w-full px-5">
+    <nav className="md:hidden pt-2 bg-zinc-900 w-full flex flex-col justify-between not-prose items-center px-3">
+      <div className="flex justify-between w-full">
         <a href="/">
           <h2 className="text-2xl border-l-2 border-b-2 ml-2 pl-2 border-gold">{name}</h2>
         </a>
