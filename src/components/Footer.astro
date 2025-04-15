@@ -7,14 +7,14 @@ import arrow from "@assets/mutantEmoji/arrow_right.png";
 import { name } from "src/constants";
 ---
 
-<footer class:list={["min-h-[75px] w-full not-prose bg-zinc-900 flex items-center px-5"]}>
-  <div class="w-full flex justify-between items-center mx-auto max-w-5xl">
+<footer class:list={["min-h-[75px] w-full not-prose bg-zinc-900 flex items-center px-5 mt-10"]}>
+  <div class="w-full flex justify-between items-center mx-auto">
     <button class="border-b-2 border-l-2 border-gold font-bold hover:cursor-pointer hidden sm:flex p-2 pr-0" id="backToTop"
       ><Image src={arrow} alt="arrow" class="rotate-270 w-5 m-auto" /><span>Back To Top</span></button
     >
     <a
       href="/"
-      class="text-xl sm:text-2xl flex items-center sm:border-t-2 border-l-2 sm:border-l-0 border-b-2 border-gold flex-nowrap text-nowrap pl-2 sm:pl-0"
+      class="text-xl sm:text-2xl md:text-3xl flex items-center sm:border-t-2 border-l-2 sm:border-l-0 border-b-2 border-gold flex-nowrap text-nowrap pl-2 sm:pl-0"
     >
       <h2>{name}</h2>
     </a>

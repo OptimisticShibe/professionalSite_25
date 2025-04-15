@@ -34,7 +34,12 @@ const Hamburger = () => {
         {navLinks.map((link, i) => {
           return (
             <>
-              <a className="hover:scale-[1.15] transition duration-300 p-2 font-bold grow text-center" key={i} href={link.url}>
+              <a
+                className="hover:scale-[1.15] transition duration-300 p-2 font-bold grow text-center"
+                key={i}
+                href={link.url}
+                target={link.target ? link.target : ""}
+              >
                 {link.label}
               </a>
               <span className="not-last:border-r-2 border-gold" />
