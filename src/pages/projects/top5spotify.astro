@@ -35,7 +35,7 @@ const tech: TechItem[] = [
   { techName: "React Bootstrap", techLogo: { img: bootstrapLogo, imgAlt: "bootstrap" } },
   { techName: "Heroku Deploy", techLogo: { img: herokuLogo, imgAlt: "Heroku" } },
 ];
-const link2 = { img: top5spotifylogo, text: "Live App", url: "/" };
+const link2 = { img: top5spotifylogo, text: "Live App", url: "https://topfivespotify.rafiqramadan.com" };
 const gallery: GalleryItem[] = [
   {
     image: { img: top5spotify, imgAlt: "Top 5 Main" },
@@ -55,22 +55,22 @@ const gallery: GalleryItem[] = [
 <Layout>
   <ProjectPage
     title="Top-Five Spotify"
-    emoji={["🎶", "🟢", "🎧"]}
+    emojis={["🎶", "🟢", "🎧"]}
     technologies={tech}
-    githubRepoLink="https://github.com/OptimisticShibe/ThreeJSPersonalSite"
+    githubRepoLink="https://github.com/OptimisticShibe/spotify-stats-dashboard"
     link2={link2}
     gallery={gallery}
   >
     <p slot="summary">
       A hobby project built from the ground up to create a useful, interesting spotify data-display app, and to practice using ReactJS and integrating with a
-      public API
+      public API.
     </p>
 
     <ol slot="goal">
       <li>Successfully implement async auth via an external api</li>
       <li>Display the user's Top 5 Spotify data in a visually-appealing manner, easily screenshotted for posting online or sharing with friends</li>
       <li>Create custom, responsive UI elements to enhance readability of app user actions</li>
-      <li>Design an app that *I personally* would enjoy using outside of coding practice</li>
+      <li>Design an app that <strong>I personally</strong> would enjoy using outside of coding practice</li>
     </ol>
 
     <ol slot="uxFlow">
@@ -110,15 +110,43 @@ const gallery: GalleryItem[] = [
       <div>
         <p>
           <strong>Problem: </strong>Due to changes to Spotify's API rate quota, the app will not work with anyone not explicitly added to my developer
-          whitelist, and will return a <code>403 error</code> if an endpoint call is made after authentication
+          whitelist, and will return a <code>403 error</code> if an endpoint call is made after authentication.
         </p>
         <p>
-          <strong>Solution: </strong> Catching the HTML error and displaying demo data for the user instead, along with an alert banner notifying them of the circumstance
+          <strong>Solution: </strong> Catching the HTML error and displaying demo data for the user instead, along with an alert banner notifying them of the circumstance.
         </p>
         <div class="flex justify-center">
           <Image src={top5DemoModal} alt="Top 5 Demo Modal" />
         </div>
       </div>
+    </div>
+    <div slot="challenges">
+      <section>
+        <h3>React Bootstrap Limitations</h3>
+        <p>
+          Bootstrap was useful for getting decent design right out the bat, especially being newer to Web Design. Once well into the project, however, bootstrap
+          became a hinderance. Despite its flexibility it is very opinionated, and trying to achieve the precise responsive design I had in mind was difficult.
+        </p>
+        <p>
+          The class-naming conventions of Bootstrap were very intuitive, and carry nicely into more modern Tailwind designs. But at the same time it also made
+          me reluctant to use custom CSS when needed. Overall, Bootstrap was useful and clean, but hampered my overall design ability.
+        </p>
+      </section>
+      <section>
+        <h3>Spotify API Limitations</h3>
+        <p>
+          Spotify's API is reasonably designed, well-documented, and highly referenced online in many tutorial API projects. Its limitations however were pretty
+          restrictive, and in hindsight I should have more fully researched them before building my app around expectations to the contrary.
+        </p>
+        <p>
+          The major one is that without extra API access, Spotify limited most API endpoints to Spotify accounts explicitly whitelisted in my developer account.
+          Allowing broad API access through my app required Spotify's approval and extension of tokens.
+          <br />
+          From my research, this was a relatively recent change. Things like <strong>User Image</strong>, <strong>Top Tracks</strong>, and <strong
+            >Top Artists</strong
+          > were only recently restricted behind the whitelist requirements.
+        </p>
+      </section>
     </div>
   </ProjectPage>
 </Layout>

@@ -16,7 +16,7 @@ import nodeLogo from "@assets/techLogos/node-js.svg";
 import vercelLogo from "@assets/techLogos/vercel.svg";
 
 // Icons
-import top5spotifylogo from "@assets/projects/top5spotify/proto_logo.svg";
+import coffeeCherries from "@assets/projects/threeJsPortfolio/coffee-cherries.svg";
 import ProjectPage from "@components/ProjectPage.astro";
 
 const tech: TechItem[] = [
@@ -34,7 +34,7 @@ const tech: TechItem[] = [
   { techName: "ThreeJS", techLogo: { img: threeJsLogo, imgAlt: "threeJsLogo", invert: true } },
   { techName: "Vercel Deploy", techLogo: { img: vercelLogo, imgAlt: "vercelLogo", invert: true } },
 ];
-const link2 = { img: top5spotifylogo, text: "Live App", url: "https://v1.rafiqramadan.com" };
+const link2 = { img: coffeeCherries, text: "Live App", url: "https://v1.rafiqramadan.com" };
 const gallery: GalleryItem[] = [
   {
     image: { img: siteMain, imgAlt: "Site Landing" },
@@ -54,7 +54,7 @@ const gallery: GalleryItem[] = [
 <Layout>
   <ProjectPage
     title="ThreeJS Portfolio Site"
-    emoji={["🌞", "☕️", "👨‍💻"]}
+    emojis={["🌞", "☕️", "👨‍💻"]}
     technologies={tech}
     githubRepoLink="https://github.com/OptimisticShibe/ThreeJSProfessionalSite"
     link2={link2}
@@ -69,7 +69,7 @@ const gallery: GalleryItem[] = [
       <li>To test my ability to code a stylish, simple webpage without any external packages to help</li>
       <li>Experiment with using 3D models, especially in regards to camera and lighting manipulation</li>
       <li>Create a personal website for hosting personal projects and some personal info</li>
-      <li>Practice using script-based javascript, managing loading states etc. without convenience of robust packages</li>
+      <li>Practice using script-based Javascript, managing loading states etc. without convenience of robust packages</li>
     </ol>
 
     <ol slot="uxFlow">
@@ -83,8 +83,62 @@ const gallery: GalleryItem[] = [
       <li>As user scrolls, ThreeJS 3D camera pans out—latte mug recedes into distance, coffee beans and coffee machine swing into view</li>
     </ol>
     <div slot="details">
-      <h3>🔁 Asynchronus API Data Fetching</h3>
-      Testing
+      <section>
+        <h3>🍦 Vanilla HTML, CSS, JS</h3>
+        <p>
+          As a personal challenge, I decided to build this site without React, Angular, or any other JS framework I was comfortable with, except for ThreeJS for
+          the animated background.
+        </p>
+        <ul>
+          <li>The website is a single page site, with everything written directly to the index.html file</li>
+          <li>CSS styling is handled in a single stylesheet</li>
+          <li>Simple Javascript functionality is directly scripted in, or loaded as a module</li>
+        </ul>
+      </section>
+      <section>
+        <h3>🍩 ThreeJS</h3>
+        <p>
+          <a href="https://threejs.org/">ThreeJS</a> is a Javascript library for rendering and animating 3D models in the browser. This was the driving inspiration
+          for this project–I wanted to make a single-page webpage that would animate objects in the background as the user scrolled down.
+        </p>
+        <p>
+          Upon landing on the site, the webpage loads the <em>canvas</em> element, and the Javascript loaded into it. This is when the spinning latte mug, coffee
+          machine, and coffee bean "asteroids" are generated. The coffee beans are generated with some randomized positioning and rotation.
+        </p>
+      </section>
+    </div>
+    <div slot="challenges">
+      <section>
+        <h3>Initial Page Load</h3>
+        <p>
+          Even by the end of development on this project, I could not figure out a reliable way to control the initial page load. ThreeJS and its 3D models need
+          time to render, especially on slower connections, and vanilla HTML, CSS, and JS offers very limited options for detecting a loading status.
+        </p>
+        <p>
+          Currently the site loads with a large loading spinner and a static background while the 3D canvas element loads. Unfortunately this does not stop the
+          rest of the site from loading, and a user could scroll down quickly and access the unfinished render version of the site.
+        </p>
+      </section>
+      <section>
+        <h3>ThreeJS Complexity</h3>
+        <p>
+          Easily the most difficult part of this project was learning and debugging ThreeJS. It involved learning both the ThreeJS library, as well as basic 3D
+          model concepts such as lighting and cameras.
+        </p>
+        <p>
+          Finding free models online and learning how to adjust their sizes and animations took longer than expected. The most difficult of all was the coffee
+          bean "asteroid field" I designed. Programatically generating the beans and randomizing their locations plus rotation vectors was a clunky process, and
+          more than once I created performance issues by rendering so many objects.
+        </p>
+      </section>
+      <section>
+        <h3>Vanilla Javascript</h3>
+        <p>
+          Although the site was designed with the idea of practicing vanilla Javascript, this made the complexity of ThreeJS very difficult to debug. If I went
+          back, I'd do this part again with Typescript because type-safety alone would have saved me an incredible amount of time just in avoiding runtime
+          errors.
+        </p>
+      </section>
     </div>
   </ProjectPage>
 </Layout>

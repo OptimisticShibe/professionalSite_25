@@ -22,7 +22,7 @@ export interface GalleryItem {
 }
 interface Props {
   title: string;
-  emoji: string[];
+  emojis: string[];
   technologies: TechItem[];
   githubRepoLink: string;
   link2: {
@@ -30,32 +30,26 @@ interface Props {
     text: string;
     url: string;
   };
-  gallery?: GalleryItem[];
+  gallery: GalleryItem[];
 }
 
-const { title, emoji, technologies, githubRepoLink, link2, gallery } = Astro.props;
-const isGallery = gallery && gallery.length > 0;
+const { title, emojis, technologies, githubRepoLink, link2, gallery } = Astro.props;
 ---
 
 <ContentBox>
-  <span class="text-5xl xs:text-8xl text-center not-prose w-full inline-block my-8 border-b-0">{emoji}</span>
+  <div class="text-5xl xs:text-8xl text-center not-prose w-full flex justify-around my-8 border-b-0">{emojis.map((emoji) => <span>{emoji}</span>)}</div>
   <h1 class="mt-5 border-gold pl-2">{title}</h1>
   <section>
     <div class="flex flex-col md:grid grid-cols-2 gap-5 mb-5">
       <summary class="list-none not-prose my-auto"> <slot name="summary" /></summary>
       <nav class="p-1 rounded-lg bg-black/25 divide-y-2 divide-zinc-200 md:my-auto not-prose flex flex-col">
         <h2 class="ml-2 mt-2 text-center text-2xl mb-4 text-[var(--tw-prose-headings)]">Contents</h2>
-        <div class="grid grid-cols-2 grid-rows-2 items-center text-xl grow min-h-24">
-          <a class="underline decoration-2 ml-[25%]" href="#links">Links</a>
-          <a class="underline decoration-2 ml-[25%]" href="#uxFlow">UX Flow</a>
-          <a class="underline decoration-2 ml-[25%]" href="#details">Tech Details</a>
-          {
-            isGallery && (
-              <a class="underline decoration-2 ml-[25%]" href="#gallery">
-                Gallery
-              </a>
-            )
-          }
+        <div class="grid grid-cols-2 grid-rows-3 items-center text-xl grow min-h-24">
+          <span class="text-center"><a class="underline decoration-2 text-center" href="#links">Links</a></span>
+          <span class="text-center"><a class="underline decoration-2 text-center" href="#uxFlow">UX Flow</a></span>
+          <span class="text-center"><a class="underline decoration-2 text-center" href="#details">Tech Details</a></span>
+          <span class="text-center"><a class="underline decoration-2 text-center" href="#challenges">Challenges</a></span>
+          <span class="text-center col-span-2"><a class="underline decoration-2 text-center" href="#gallery">Gallery</a></span>
         </div>
       </nav>
     </div>
@@ -111,21 +105,23 @@ const isGallery = gallery && gallery.length > 0;
     <h2 class="border-l-2 border-gold pl-2">Details</h2>
     <slot name="details" />
   </section>
-  {
-    isGallery && (
-      <section id="gallery">
-        <h2 class="border-l-2 border-gold pl-2">Gallery</h2>
-        <div class="flex flex-col items-center gap-5">
-          {gallery?.map((galleryItem) => {
-            return (
-              <div>
-                <Image src={galleryItem.image.img} alt={galleryItem.image.imgAlt} class="not-prose " />
-                <figcaption>{galleryItem.caption}</figcaption>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-    )
-  }
+  <section id="challenges">
+    <h2 class="border-l-2 border-gold pl-2">Challenges</h2>
+    <slot name="challenges" />
+  </section>
+  <section id="gallery">
+    <h2 class="border-l-2 border-gold pl-2">Gallery</h2>
+    <div class="flex flex-col items-center gap-5">
+      {
+        gallery?.map((galleryItem) => {
+          return (
+            <div>
+              <Image src={galleryItem.image.img} alt={galleryItem.image.imgAlt} class="not-prose shadow-2xl" />
+              <figcaption>{galleryItem.caption}</figcaption>
+            </div>
+          );
+        })
+      }
+    </div>
+  </section>
 </ContentBox>

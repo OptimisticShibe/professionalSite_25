@@ -17,7 +17,7 @@ import deno from "@assets/techLogos/deno.svg";
 import tailwind from "@assets/techLogos/tailwindLogo.png";
 import vite from "@assets/techLogos/vite.png";
 // Icons
-import top5spotifylogo from "@assets/projects/top5spotify/proto_logo.svg";
+import cobraIcon from "@assets/projects/staticSiteDesigns/cobra.png";
 
 const tech: TechItem[] = [
   { techName: "AstroJS", techLogo: { img: astro, imgAlt: "astro" } },
@@ -33,7 +33,7 @@ const tech: TechItem[] = [
   { techName: "Deno Deploy", techLogo: { img: deno, imgAlt: "deno" } },
   { techName: "Vite", techLogo: { img: vite, imgAlt: "vite" } },
 ];
-const link2 = { img: top5spotifylogo, text: "Live App", url: "/" };
+const link2 = { img: cobraIcon, text: "Live App", url: "/" };
 const gallery: GalleryItem[] = [
   {
     image: { img: staticSiteAbout, imgAlt: "Static Red About Page" },
@@ -53,7 +53,7 @@ const gallery: GalleryItem[] = [
 <Layout>
   <ProjectPage
     title="Static Site Designs"
-    emoji={["🚀", "💨", "🎨"]}
+    emojis={["🚀", "💨", "🎨"]}
     technologies={tech}
     githubRepoLink="https://github.com/OptimisticShibe/professionalSite_25"
     link2={link2}
@@ -64,10 +64,7 @@ const gallery: GalleryItem[] = [
       styling of content, as well as coding syntactic-sugar (as opposed to the static HTML and CSS methodology <a
         href="/projects/threeJsPortfolio"
         class="font-medium underline decoration-2">I used previously</a
-      >)
-      <br />
-      <strong>Note:</strong> Although I built a 2nd site with these same technologies other than this one, I cannot share any information beyond these photos at
-      this time due to privacy concerns
+      >).
     </p>
 
     <ol slot="goal">
@@ -84,8 +81,44 @@ const gallery: GalleryItem[] = [
       <li>On projects page, single page displays summaries of my coding projects, with links to full individual pages of each</li>
     </ol>
     <div slot="details">
-      <h3>🔁 Asynchronus API Data Fetching</h3>
-      <section>Fill in later</section>
+      <section>
+        <h3>🚀 AstroJS</h3>
+        <p>
+          Astro is the real star of the show for these sites. The `.astro` file type is just a JSX file with frontmatter at the top for handling pure
+          react-style operations (imports, props, interfaces).
+          <br />
+          It let me code comfortably like a React dev without actually needing to deal with the overhead of React itself.
+        </p>
+        <p>
+          <strong>Routing</strong> is particularly easy with Astro–simply making a new `.astro` file within the `pages/` directory handled the routing instantly.
+          This made designing the navigable structure of my websites easy enough that I could experiment as I went along.
+        </p>
+        <p>
+          <strong>Content collections</strong> are probably the most complex offering from Astro, and I did not use them on this site. On my other site however,
+          I used it for creating a blog page. The idea being that each blog post could be a <strong>Markdown</strong> file in a folder, and then programmatically
+          loaded and rendered on the site via Astro's<a href="https://docs.astro.build/en/guides/content-collections/"> Content Collections API</a>.
+        </p>
+      </section>
+      <section>
+        <h3>🍃 TailwindCSS</h3>
+        <p>This project was inspired by my desire to learn & practice Tailwind. I fell in love with it and its design philosophy immediately.</p>
+        <p>
+          I started my web design journey with Bootstrap and Bootstrap-styled libraries, so Tailwind's class system was intuitive from the start. Notably,
+          Tailwind strongly encourages custom CSS when needed. Usually suggesting non-inline CSS for major styling, but otherwise offering very easy custom
+          value integration into their class library.
+        </p>
+        <p>
+          Tailwind's philosophy of inline-class styling also encouraged component-driven design, which fit my style to a T. If copy-pasting the same styling
+          classes to four different `div` elements felt tedious, then it was probably a good excuse to make those elements into a reusable compnent anyways.
+          <br />
+          Tailwind seems to encourage tidy design and I love that.
+        </p>
+      </section>
+    </div>
+    <div slot="challenges">
+      <section>
+        <h3>Fill In</h3>
+      </section>
     </div>
   </ProjectPage>
 </Layout>
