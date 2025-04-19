@@ -12,7 +12,13 @@ const Hamburger = () => {
         <a href="/">
           <h2 className="text-2xl border-l-2 border-b-2 ml-2 pl-2 border-gold">Rafiq Ramadan</h2>
         </a>
-        <button onClick={handleClick} className="hover:cursor-pointer justify-self-end border-r-2 border-t-2 border-gold p-2 mr-2">
+        <div
+          role="button"
+          tabIndex={0}
+          aria-expanded={hamburgerOpen}
+          onClick={handleClick}
+          className="hover:cursor-pointer justify-self-end border-r-2 border-t-2 border-gold p-2 mr-2"
+        >
           <span
             className={`bg-zinc-200 block transition-all duration-300 ease-out
                         h-0.5 w-6 rounded-sm ${hamburgerOpen ? "rotate-45 translate-y-1" : "-translate-y-0.5"}`}
@@ -25,7 +31,7 @@ const Hamburger = () => {
             className={`bg-zinc-200 block transition-all duration-300 ease-out
                         h-0.5 w-6 rounded-sm ${hamburgerOpen ? "-rotate-45 -translate-y-1" : "translate-y-0.5"}`}
           ></span>
-        </button>
+        </div>
       </div>
       <section className={` duration-300 ease-in-out w-full overflow-y-hidden flex justify-around mt-4 px-4  ${hamburgerOpen ? "max-h-20 pb-2" : "max-h-0"}`}>
         {navLinks.map((link, i) => {
