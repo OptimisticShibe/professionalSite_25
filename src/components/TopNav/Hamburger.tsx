@@ -14,6 +14,8 @@ const Hamburger = () => {
         </a>
         <button
           tabIndex={0}
+          aria-label="navigation menu"
+          role="button"
           aria-expanded={hamburgerOpen}
           onClick={handleClick}
           className="hover:cursor-pointer justify-self-end border-r-2 border-t-2 border-gold p-2 mr-2"
