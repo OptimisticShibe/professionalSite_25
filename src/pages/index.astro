@@ -1,12 +1,11 @@
 ---
 import { Image } from "astro:assets";
 
-import RegalBadgeTransparent from "@assets/RegalBadgeTransparent.png";
+import HeadshotTali from "@assets/HeadshotTali.png";
 import Layout from "@layouts/Layout.astro";
 ---
 
 <Layout homepage={true}>
-  <!-- <main class="grid grid-cols-12 place-content-center mt-[15%]"> -->
   <main class="flex place-content-center mt-12 md:mt-36">
     <div class="items-center justify-center text-center col-span-10 col-start-2 flex flex-col md:grid grid-cols-2 mx-5">
       <div class="flex place-content-center">
@@ -21,7 +20,7 @@ import Layout from "@layouts/Layout.astro";
         </div>
       </div>
       <div class="flex not-prose place-content-center max-w-[80%]">
-        <Image src={RegalBadgeTransparent} alt="Regal Transparent" class="md:min-w-[300px]" />
+        <Image src={HeadshotTali} alt="Regal Transparent" class="md:min-w-[300px] md:my-0 my-8" />
       </div>
       <h2 class="divide-y-2 divide-gold col-start-1 block md:hidden mt-5">
         <span><em>Frontend Engineer</em></span>
