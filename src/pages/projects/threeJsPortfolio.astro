@@ -19,7 +19,7 @@ import vercelLogo from "@assets/techLogos/vercel.svg";
 import coffeeCherries from "@assets/projects/threeJsPortfolio/coffee-cherries.svg";
 import ProjectPage from "@components/ProjectPage.astro";
 
-const tech: TechItem[] = [
+export const threeJsTech: TechItem[] = [
   { techName: "HTML", techLogo: { img: html, imgAlt: "html", invert: true } },
   { techName: "CSS", techLogo: { img: css, imgAlt: "css", invert: true } },
   {
@@ -55,7 +55,7 @@ const gallery: GalleryItem[] = [
   <ProjectPage
     title="ThreeJS Portfolio Site"
     emojis={["🌞", "☕️", "👨‍💻"]}
-    technologies={tech}
+    technologies={threeJsTech}
     githubRepoLink="https://github.com/OptimisticShibe/ThreeJSProfessionalSite"
     link2={link2}
     gallery={gallery}

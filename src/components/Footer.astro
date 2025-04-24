@@ -1,12 +1,10 @@
 ---
 import { Image } from "astro:assets";
-
-import linkedInIcon from "@assets/svg/logo-linkedin.svg";
-import email from "@assets/svg/mail.svg";
 import arrow from "@assets/mutantEmoji/arrow_right.png";
+import ContactLinks from "./ContactLinks.astro";
 ---
 
-<footer class:list={["min-h-[75px] w-full not-prose bg-zinc-900 flex items-center px-5 mt-10"]}>
+<footer class:list={["min-h-[75px] w-full not-prose dark:bg-zinc-900 bg-zinc-100 flex items-center px-5 mt-10"]}>
   <div class="w-full flex justify-between items-center mx-auto">
     <button class="border-b-2 border-l-2 border-gold font-bold hover:cursor-pointer hidden sm:flex p-2 pr-0" id="backToTop"
       ><Image src={arrow} alt="arrow" class="rotate-270 w-5 m-auto" /><span>Back To Top</span></button
@@ -18,13 +16,7 @@ import arrow from "@assets/mutantEmoji/arrow_right.png";
       <h2>Rafiq Ramadan</h2>
     </a>
     <div class="flex border-t-2 border-r-2 border-gold pt-1 pr-1">
-      <a href="https://www.linkedin.com/in/rafiqramadan/">
-        <Image src={linkedInIcon} alt="linkedIn" class="w-7 lg:w-8 invert hover:scale-[1.15] transition duration-300 bg-zinc-200 rounded-sm p-0.5" />
-      </a>
-      <!-- TODO: set up email -->
-      <a href="mailto:rafiq@rafiqramadan.com">
-        <Image src={email} alt="email" class="w-7 lg:w-8 invert scale-[1.15] hover:scale-[1.30] transition duration-300 p-0.5" />
-      </a>
+      <ContactLinks />
     </div>
   </div>
 </footer>

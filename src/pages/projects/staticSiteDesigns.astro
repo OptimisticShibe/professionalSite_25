@@ -19,8 +19,8 @@ import vite from "@assets/techLogos/vite.png";
 // Icons
 import cobraIcon from "@assets/projects/staticSiteDesigns/cobra.png";
 
-const tech: TechItem[] = [
-  { techName: "AstroJS", techLogo: { img: astro, imgAlt: "astro" } },
+export const staticSiteTech: TechItem[] = [
+  { techName: "AstroJS", techLogo: { img: astro, imgAlt: "astro", invert: true } },
   { techName: "TailwindCSS", techLogo: { img: tailwind, imgAlt: "tailwind" } },
   {
     techName: "React",
@@ -54,7 +54,7 @@ const gallery: GalleryItem[] = [
   <ProjectPage
     title="Static Site Designs"
     emojis={["🚀", "💨", "🎨"]}
-    technologies={tech}
+    technologies={staticSiteTech}
     githubRepoLink="https://github.com/OptimisticShibe/professionalSite_25"
     link2={link2}
     gallery={gallery}

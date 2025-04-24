@@ -3,31 +3,31 @@ import { Image } from "astro:assets";
 
 import HeadshotTali from "@assets/HeadshotTali.png";
 import Layout from "@layouts/Layout.astro";
+import ContactLinks from "@components/ContactLinks.astro";
 ---
 
 <Layout homepage={true}>
-  <main class="flex place-content-center mt-12 md:mt-36">
-    <div class="items-center justify-center text-center col-span-10 col-start-2 flex flex-col md:grid grid-cols-2 mx-5">
-      <div class="flex place-content-center">
-        <h1 class="flex md:hidden flex-col mb-2 text-5xl xs:text-6xl col-start-1">Rafiq<br />Ramadan</h1>
-        <div class="md:flex hidden flex-col row-span-2 h-full justify-center">
-          <h1 class="flex flex-col mb-2 text-6xl lg:text-7xl col-start-1">Rafiq<br />Ramadan</h1>
-          <h2 class="md:order-2 divide-y-2 divide-gold col-start-1 md:block hidden mt-5">
-            <span><em>Frontend Engineer</em></span>
-            <br />
-            <span><em>Chicago, IL</em></span>
+  <main class="flex place-content-center h-[calc(100vh-54px)]">
+    <section class="place-items-center justify-center text-center col-span-10 col-start-2 flex flex-col md:grid grid-cols-2 mx-5">
+      <div class="flex place-content-center border-gold border-4 p-4">
+        <div class="flex flex-col row-span-2 h-full justify-center">
+          <h1 class="flex flex-col mb-0 text-5xl xs:text-6xl lg:text-7xl col-start-1">Rafiq<br />Ramadan</h1>
+
+          <hr class="border-gold not-prose mx-20 mt-4" />
+
+          <h2 class="col-start-1 mt-5 mb-0 text-xl md:text-2xl">
+            <span class="border-gold block-inline">Frontend Engineer</span>
           </h2>
+          <span class="text-xl font-normal mt-1"><em>He/Him • Chicago, IL</em></span>
+          <div class="flex justify-center not-prose mt-1">
+            <ContactLinks />
+          </div>
         </div>
       </div>
       <div class="flex not-prose place-content-center max-w-[80%]">
         <Image src={HeadshotTali} alt="Regal Transparent" class="md:min-w-[300px] md:my-0 my-8" />
       </div>
-      <h2 class="divide-y-2 divide-gold col-start-1 block md:hidden mt-5">
-        <span><em>Frontend Engineer</em></span>
-        <br />
-        <span>Chicago, IL</span>
-      </h2>
-    </div>
+    </section>
   </main>
 </Layout>
 

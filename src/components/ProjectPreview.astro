@@ -1,16 +1,19 @@
 ---
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
+import type { TechItem } from "./ProjectPage.astro";
+import TechList from "./TechList.astro";
 
 interface Props {
   title: string;
   summary: string;
   link: string;
   emojis: string[];
+  tech: TechItem[];
   image?: ImageMetadata;
 }
 
-const { title, summary, link, emojis, image } = Astro.props;
+const { title, summary, link, emojis, tech, image } = Astro.props;
 ---
 
 <section class="flex flex-col sm:flex-row sm:odd:flex-row-reverse sm:not-last:pb-8">
@@ -22,6 +25,7 @@ const { title, summary, link, emojis, image } = Astro.props;
       <h2 class="text-[var(--tw-prose-headings)] text-2xl xs:text-3xl">{title}</h2>
     </a>
     <summary class="list-none">{summary}</summary>
-    {image && <Image src={image} alt={`${title} preview image`} class="not-prose shadow-2xl" />}
+    <TechList technologies={tech} />
+    {image && <Image src={image} alt={`${title} preview image`} class="not-prose shadow-2xl border-2 border-gold" />}
   </div>
 </section>

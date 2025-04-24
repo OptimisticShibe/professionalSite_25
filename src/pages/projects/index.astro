@@ -7,6 +7,9 @@ import Layout from "@layouts/Layout.astro";
 import top5Spotify from "@assets/projects/top5spotify/top5spotify.png";
 import threeJsMain from "@assets/projects/threeJsPortfolio/threeJsPortfolioMain.png";
 import staticSiteAbout from "@assets/projects/staticSiteDesigns/staticSiteAbout.png";
+import { top5SpotifyTech } from "./top5spotify.astro";
+import { threeJsTech } from "./threeJsPortfolio.astro";
+import { staticSiteTech } from "./staticSiteDesigns.astro";
 ---
 
 <Layout>
@@ -23,6 +26,7 @@ import staticSiteAbout from "@assets/projects/staticSiteDesigns/staticSiteAbout.
         summary="A hobby project built from the ground up to practice using ReactJS, responsive design, and asynchronous integration with a public API"
         link="/projects/top5spotify"
         emojis={["🎶", "🟢", "🎧"]}
+        tech={top5SpotifyTech}
         image={top5Spotify}
       />
       <ProjectPreview
@@ -30,6 +34,7 @@ import staticSiteAbout from "@assets/projects/staticSiteDesigns/staticSiteAbout.
         summary="A vaporwave & coffee-themed personal/portfolio website created with pure vanilla HTML, CSS, JS except the background, which is crafted by ThreeJS, a Javascript library for rendering and animated 3D models in the browser"
         link="/projects/threeJsPortfolio"
         emojis={["🌞", "☕️", "👨‍💻"]}
+        tech={threeJsTech}
         image={threeJsMain}
       />
       <ProjectPreview
@@ -37,6 +42,7 @@ import staticSiteAbout from "@assets/projects/staticSiteDesigns/staticSiteAbout.
         summary="Including this site, I've designed, built, and deployed 2 responsive websites with AstroJS and Tailwind CSS."
         link="/projects/staticSiteDesigns"
         emojis={["🚀", "💨", "🎨"]}
+        tech={staticSiteTech}
         image={staticSiteAbout}
       />
     </div>

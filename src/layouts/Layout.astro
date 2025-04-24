@@ -12,7 +12,7 @@ const { homepage } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark:bg-zinc-800 bg-white">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -21,7 +21,7 @@ const { homepage } = Astro.props;
     <title>Rafiq Ramadan</title>
   </head>
   <body>
-    <div class:list={["min-h-[100vh] w-full prose prose-invert"]}>
+    <div class:list={["min-h-[100vh] w-full prose dark:prose-invert"]}>
       <TopNav />
       <slot />
       {!homepage && <Footer />}

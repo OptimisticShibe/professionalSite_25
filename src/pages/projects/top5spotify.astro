@@ -21,7 +21,7 @@ import nodeLogo from "@assets/techLogos/node-js.svg";
 import top5spotifylogo from "@assets/projects/top5spotify/proto_logo.svg";
 import ProjectPage from "@components/ProjectPage.astro";
 
-const tech: TechItem[] = [
+export const top5SpotifyTech: TechItem[] = [
   { techName: "ReactJS", techLogo: { img: reactLogo, imgAlt: "React" } },
   { techName: "Axios", techLogo: { img: axiosLogo, imgAlt: "Axios" } },
   {
@@ -29,6 +29,7 @@ const tech: TechItem[] = [
     techLogo: {
       img: expressLogo,
       imgAlt: "Express",
+      invert: true,
     },
   },
   { techName: "NodeJS", techLogo: { img: nodeLogo, imgAlt: "NodeJS" } },
@@ -56,7 +57,7 @@ const gallery: GalleryItem[] = [
   <ProjectPage
     title="Top-Five Spotify"
     emojis={["🎶", "🟢", "🎧"]}
-    technologies={tech}
+    technologies={top5SpotifyTech}
     githubRepoLink="https://github.com/OptimisticShibe/spotify-stats-dashboard"
     link2={link2}
     gallery={gallery}

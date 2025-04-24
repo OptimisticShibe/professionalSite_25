@@ -1,14 +1,18 @@
 ---
-import Hamburger from "./Hamburger";
+import ThemeToggle from "@components/ThemeToggle.astro"
 import { navLinks } from "./NavLinks.ts";
+
 ---
 
-<Hamburger client:idle />
-<nav class="hidden py-2 bg-zinc-900 w-full md:flex justify-between not-prose items-center px-5">
-  <a href="/" class="text-3xl flex items-center font-bold self-center border-l-2 border-b-2 border-gold pl-2">
+<nav class="py-2 dark:bg-zinc-900 bg-zinc-100 w-full flex  not-prose items-center px-5 justify-self-start justify-between md:justify-normal flex-wrap">
+  <a href="/" class="xs:text-3xl text-2xl hidden md:flex items-center font-bold self-center border-l-2 border-b-2 border-gold pl-2">
     <h2>Rafiq Ramadan</h2>
   </a>
-  <div class="hidden md:flex font-medium  mr-4">
+  <section class="flex font-medium ml-0 md:ml-auto mr-2 justify-around md:justify-normal">
+    <a href="/" class="hover:scale-[1.15] transition duration-300 px-2 font-bold hover:cursor-pointer block md:hidden">
+      Home
+    </a>
+    <span class="not-last:border-r-2 border-gold" />
     {
       navLinks.map((link) => {
         return (
@@ -19,5 +23,18 @@ import { navLinks } from "./NavLinks.ts";
         );
       })
     }
-  </div>
+  </section>
+  <ThemeToggle />
+  <!-- <section class="flex md:hidden font-medium ml-auto w-full mt-2 justify-around py-2">
+    {
+      navLinks.map((link) => {
+        return (
+          <a href={link.url} target={link.target ? link.target : ''} class="hover:scale-[1.15] transition duration-300 px-2 font-bold hover:cursor-pointer ">
+            {link.label}
+          </a>
+          <span class="not-last:border-r-2 border-gold" />
+        );
+      })
+    }
+  </section> -->
 </nav>
