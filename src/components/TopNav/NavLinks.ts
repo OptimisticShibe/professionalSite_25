@@ -7,7 +7,7 @@ interface navLink {
 export const navLinks: navLink[] = [
   {
     label: "Projects",
-    url: "/projects",
+    url: "/#projects",
   },
   {
     label: "Resume",

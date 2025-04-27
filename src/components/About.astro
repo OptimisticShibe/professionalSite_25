@@ -1,0 +1,14 @@
+---
+import { getCollection } from "astro:content";
+import ContentBox from "./ContentBox.astro";
+import TabPanel from "@components/TabPanel/TabPanel";
+---
+
+<ContentBox>
+  <h2 class="border-b-2 border-gold" id="about">About</h2>
+  <header>
+    I'm Rafiq, a Frontend Engineer based in Chicago experienced in delivering a diverse array of accessible, enterprise-level applications, as well as
+    UI/UX-focused personal projects.
+  </header>
+  <TabPanel client:idle />
+</ContentBox>

@@ -54,7 +54,8 @@ html {
 h1 {
   font-family: "Stargaze Regular", sans-serif;
 }
-h2 {
+h2,
+h3 {
   font-family: "Stargaze Regular", sans-serif;
   letter-spacing: var(--tracking-wider);
 }

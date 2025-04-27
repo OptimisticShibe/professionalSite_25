@@ -1,0 +1,46 @@
+---
+import ContentBox from "@components/ContentBox.astro";
+import ProjectPreview from "@components/Projects/ProjectPreview.astro";
+
+// Project Images
+import top5Spotify from "@assets/projects/top5spotify/top5spotify.png";
+import threeJsMain from "@assets/projects/threeJsPortfolio/threeJsPortfolioMain.png";
+import staticSiteAbout from "@assets/projects/staticSiteDesigns/staticSiteAbout.png";
+import { top5SpotifyTech } from "src/pages/projects/top5spotify.astro";
+import { threeJsTech } from "src/pages/projects/threeJsPortfolio.astro";
+import { staticSiteTech } from "src/pages/projects/staticSiteDesigns.astro";
+---
+
+<ContentBox>
+  <h2 class="border-b-2 border-gold" id="projects">Projects</h2>
+  <header class="border-0 sm:mb-8 mb-0">
+    These are my most recent and relevant public Web Development projects. Please feel free to visit individual pages to learn about each in greater detail, as
+    well as access their code source and live app (if applicable)
+  </header>
+  <div class="flex flex-col gap-8">
+    <ProjectPreview
+      title="Top 5 Spotify"
+      summary="A hobby project built from the ground up to practice using ReactJS, responsive design, and asynchronous integration with a public API"
+      link="/projects/top5spotify"
+      emojis={["🎶", "🟢", "🎧"]}
+      tech={top5SpotifyTech}
+      image={top5Spotify}
+    />
+    <ProjectPreview
+      title="ThreeJS Portfolio"
+      summary="A vaporwave & coffee-themed personal/portfolio website created with pure vanilla HTML, CSS, JS except the background, which is crafted by ThreeJS, a Javascript library for rendering and animated 3D models in the browser"
+      link="/projects/threeJsPortfolio"
+      emojis={["🌞", "☕️", "👨‍💻"]}
+      tech={threeJsTech}
+      image={threeJsMain}
+    />
+    <ProjectPreview
+      title="Static Site Designs"
+      summary="Including this site, I've designed, built, and deployed 2 responsive websites with AstroJS and Tailwind CSS."
+      link="/projects/staticSiteDesigns"
+      emojis={["🚀", "💨", "🎨"]}
+      tech={staticSiteTech}
+      image={staticSiteAbout}
+    />
+  </div>
+</ContentBox>

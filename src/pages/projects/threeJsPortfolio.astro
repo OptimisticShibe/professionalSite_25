@@ -1,7 +1,6 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import { type GalleryItem, type TechItem } from "@components/ProjectPage.astro";
-import { Image } from "astro:assets";
+import { type GalleryItem, type TechItem } from "@components/Projects/ProjectPage.astro";
 
 // Images
 import siteMain from "@assets/projects/threeJsPortfolio/threeJsPortfolioMain.png";
@@ -17,7 +16,7 @@ import vercelLogo from "@assets/techLogos/vercel.svg";
 
 // Icons
 import coffeeCherries from "@assets/projects/threeJsPortfolio/coffee-cherries.svg";
-import ProjectPage from "@components/ProjectPage.astro";
+import ProjectPage from "@components/Projects/ProjectPage.astro";
 
 export const threeJsTech: TechItem[] = [
   { techName: "HTML", techLogo: { img: html, imgAlt: "html", invert: true } },

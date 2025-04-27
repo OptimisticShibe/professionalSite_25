@@ -3,16 +3,10 @@ import Footer from "@components/Footer.astro";
 import TopNav from "@components/TopNav/TopNav.astro";
 
 import "../styles/global.css";
-
-interface Props {
-  homepage?: boolean;
-}
-
-const { homepage } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="dark:bg-zinc-800 bg-white">
+<html lang="en" class="dark:bg-zinc-800 bg-white scroll-smooth scroll-p-[54px]">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -21,10 +15,10 @@ const { homepage } = Astro.props;
     <title>Rafiq Ramadan</title>
   </head>
   <body>
-    <div class:list={["min-h-[100vh] w-full prose dark:prose-invert"]}>
+    <div class:list={["min-h-[100vh] w-full prose dark:prose-invert relative"]}>
       <TopNav />
       <slot />
-      {!homepage && <Footer />}
+      <Footer />
     </div>
   </body>
 </html>

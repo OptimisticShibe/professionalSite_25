@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import type { TechItem } from "./ProjectPage.astro";
+import type { TechItem } from "@components/Projects/ProjectPage.astro";
 
 interface Props {
   technologies: TechItem[];
@@ -14,7 +14,7 @@ const { technologies } = Astro.props;
     technologies.map((tech) => {
       if (tech.techLogo) {
         return (
-          <li class="p-2 rounded-sm dark:bg-zinc-900 bg-zinc-100 flex gap-2">
+          <li class="p-2 rounded-sm dark:bg-zinc-700 bg-zinc-300 flex gap-2 shadow-xl">
             <Image src={tech.techLogo?.img} alt={tech.techLogo?.imgAlt} class:list={["w-6 my-auto", `${tech.techLogo.invert ? "dark:invert" : ""}`]} />
             {tech.techName}
           </li>
