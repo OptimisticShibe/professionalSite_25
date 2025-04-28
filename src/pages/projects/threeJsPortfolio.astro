@@ -11,9 +11,9 @@ import iceCream from "@assets/mutantEmoji/ice_cream.svg";
 import d4 from "@assets/mutantEmoji/d4.svg";
 
 // Logos
-import html from "@assets/techLogos/html.png";
-import css from "@assets/techLogos/css.png";
-import js from "@assets/techLogos/js.png";
+import html from "@assets/techLogos/html.svg";
+import css from "@assets/techLogos/css.svg";
+import js from "@assets/techLogos/js.svg";
 import threeJsLogo from "@assets/techLogos/threeJs.png";
 import nodeLogo from "@assets/techLogos/node-js.svg";
 import vercelLogo from "@assets/techLogos/vercel.svg";
@@ -25,14 +25,14 @@ import { projectEmoji } from "./projectEmoji";
 import InlineMutantEmoji from "@components/InlineMutantEmoji.astro";
 
 export const threeJsTech: TechItem[] = [
-  { techName: "HTML", techLogo: { img: html, imgAlt: "html", invert: true } },
-  { techName: "CSS", techLogo: { img: css, imgAlt: "css", invert: true } },
+  { techName: "HTML", techLogo: { img: html, imgAlt: "html", invert: false } },
+  { techName: "CSS", techLogo: { img: css, imgAlt: "css", invert: false } },
   {
     techName: "Javascript",
     techLogo: {
       img: js,
       imgAlt: "js",
-      invert: true,
+      invert: false,
     },
   },
   { techName: "NodeJS", techLogo: { img: nodeLogo, imgAlt: "NodeJS" } },

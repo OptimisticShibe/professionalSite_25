@@ -16,10 +16,14 @@
   /* --breakpoint-2xl: 1600px; */
 }
 
+/* Prose Overrides */
 .prose figure {
   margin: 0;
 }
 
+.prose {
+  max-width: none;
+}
 .hamburger {
   filter: invert(93%) sepia(9%) saturate(154%) hue-rotate(181deg) brightness(95%) contrast(83%);
 }
