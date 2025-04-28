@@ -1,44 +1,62 @@
-interface educationItem {
-  institution: string;
-  degree: string;
+interface workEduItem {
+  name: string;
+  detail: string;
   startDate: Date;
   endDate?: Date;
-  logo: string;
+  logo: {
+    img: string;
+    bgColor?: string;
+  };
+  info?: string[];
 }
 
-interface workExperienceItem {
-  companyName: string;
-  jobTitle: string;
-  startDate: Date;
-  endDate?: Date;
-  logo: string;
-  details: string[];
-}
-
-export const education: educationItem[] = [
+const education: workEduItem[] = [
   {
-    institution: "University of Missouri",
-    degree: "BS Biology | BA Religious Studies",
-    startDate: new Date("2010-08-01"),
-    endDate: new Date("2013-12-01"),
-    logo: "",
+    name: "ICAgile",
+    detail: "Agile Fundamentals Certification",
+    startDate: new Date("2019-05-01T00:00:00"),
+    logo: { img: "/logos/ICAgile.png", bgColor: "bg-white" },
+  },
+  {
+    name: "University of Washington",
+    detail: "C# Certification",
+    startDate: new Date("2017-05-01T00:00:00"),
+    logo: { img: "/logos/UniversityWashington.jpg", bgColor: "bg-[#2a1c4f]" },
+  },
+  {
+    name: "University of Missouri",
+    detail: "BS Biology & BA Religious Studies",
+    startDate: new Date("2010-08-01T00:00:00"),
+    endDate: new Date("2013-12-01T00:00:00"),
+    logo: { img: "/logos/UniversityMissouri.jpg", bgColor: "bg-[#c7910b]" },
   },
 ];
 
-export const workExperience: workExperienceItem[] = [
+const workExperience: workEduItem[] = [
   {
-    companyName: "Deloitte",
-    jobTitle: "Senior Consultant - Frontend Engineer",
-    startDate: new Date("2022-03-01"),
-    logo: "/logos/Deloitte.png",
-    details: ["Test", "Another Test", "Third Detail"],
+    name: "Deloitte",
+    detail: "Senior Consultant - Frontend Engineer",
+    startDate: new Date("2022-03-01T00:00:00"),
+    logo: { img: "/logos/Deloitte.png" },
+    info: ["Test", "Another Test", "Third Detail"],
   },
   {
-    companyName: "Accenture",
-    jobTitle: "Systems Developer - Full Stack Engineer",
-    startDate: new Date("2017-06-01"),
-    endDate: new Date("2022-03-01"),
-    logo: "/logos/Accenture.png",
-    details: ["Test", "Another Test", "Third Detail"],
+    name: "Accenture Federal Services",
+    detail: "Systems Developer - Full Stack Engineer",
+    startDate: new Date("2017-06-01T00:00:00"),
+    endDate: new Date("2022-03-01T00:00:00"),
+    logo: { img: "/logos/Accenture.png" },
+    info: ["Test", "Another Test", "Third Detail"],
+  },
+];
+
+export const eduWorkData = [
+  {
+    name: "Work Experience",
+    data: workExperience,
+  },
+  {
+    name: "Education",
+    data: education,
   },
 ];

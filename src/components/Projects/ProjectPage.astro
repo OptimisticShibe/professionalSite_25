@@ -24,7 +24,7 @@ export interface GalleryItem {
 }
 interface Props {
   title: string;
-  emojis: string[];
+  emojis: ImageMetadata[];
   technologies: TechItem[];
   githubRepoLink: string;
   link2: {
@@ -39,7 +39,15 @@ const { title, emojis, technologies, githubRepoLink, link2, gallery } = Astro.pr
 ---
 
 <ContentBox>
-  <div class="text-5xl xs:text-8xl text-center not-prose w-full flex justify-around my-8 border-b-0">{emojis.map((emoji) => <span>{emoji}</span>)}</div>
+  <div class="text-5xl xs:text-8xl text-center not-prose w-full flex justify-around my-8 border-b-0 space-x-10">
+    {
+      emojis.map((emoji) => (
+        <span>
+          <Image src={emoji} alt={emoji.src.split("/").at(-1) || "mutant emoji"} class="size-24" loading="eager" />
+        </span>
+      ))
+    }
+  </div>
   <h1 class="mt-5 border-gold pl-2">{title}</h1>
   <section>
     <div class="flex flex-col md:grid grid-cols-2 gap-5 mb-5">
@@ -103,10 +111,10 @@ const { title, emojis, technologies, githubRepoLink, link2, gallery } = Astro.pr
       {
         gallery?.map((galleryItem) => {
           return (
-            <div>
-              <Image src={galleryItem.image.img} alt={galleryItem.image.imgAlt} class="not-prose shadow-2xl" />
+            <figure>
+              <Image src={galleryItem.image.img} alt={galleryItem.image.imgAlt} class="not-prose shadow-sm" />
               <figcaption>{galleryItem.caption}</figcaption>
-            </div>
+            </figure>
           );
         })
       }

@@ -1,0 +1,12 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  emoji: ImageMetadata;
+  styling?: string;
+}
+
+const { emoji, styling } = Astro.props;
+---
+
+<Image src={emoji} alt={emoji.src.split("/").at(-1) || "mutant emoji"} class:list={["w-7 mb-0.5 not-prose inline-block", styling]} />

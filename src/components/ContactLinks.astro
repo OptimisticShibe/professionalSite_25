@@ -3,14 +3,35 @@ import { Image } from "astro:assets";
 import resumeIcon from "@assets/resume.png";
 import linkedInIcon from "@assets/svg/logo-linkedin.svg";
 import email from "@assets/svg/mail.svg";
+
+interface Props {
+  eagerLoad?: boolean;
+}
+
+const { eagerLoad = false } = Astro.props;
 ---
 
 <a href="/resume" target="_blank">
-  <Image src={resumeIcon} alt="resume" class="w-7 lg:w-8 dark:invert hover:scale-[1.15] transition duration-300 rounded-sm p-0.5" />
+  <Image
+    src={resumeIcon}
+    alt="resume"
+    class="w-7 lg:w-8 dark:invert hover:scale-[1.15] transition duration-300 rounded-sm p-0.5"
+    loading={eagerLoad ? "eager" : "lazy"}
+  />
 </a>
 <a href="https://www.linkedin.com/in/rafiqramadan/" class="mr-1">
-  <Image src={linkedInIcon} alt="linkedIn" class="w-7 lg:w-8 dark:invert hover:scale-[1.15] transition duration-300 rounded-sm p-0.5" />
+  <Image
+    src={linkedInIcon}
+    alt="linkedIn"
+    class="w-7 lg:w-8 dark:invert hover:scale-[1.15] transition duration-300 rounded-sm p-0.5"
+    loading={eagerLoad ? "eager" : "lazy"}
+  />
 </a>
 <a href="mailto:rafiq@rafiqramadan.com">
-  <Image src={email} alt="email" class="w-7 lg:w-8 dark:invert scale-[1.15] hover:scale-[1.30] transition duration-300 p-0.5" />
+  <Image
+    src={email}
+    alt="email"
+    class="w-7 lg:w-8 dark:invert scale-[1.15] hover:scale-[1.30] transition duration-300 p-0.5"
+    loading={eagerLoad ? "eager" : "lazy"}
+  />
 </a>

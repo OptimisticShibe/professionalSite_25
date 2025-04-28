@@ -6,6 +6,10 @@ import { type GalleryItem, type TechItem } from "@components/Projects/ProjectPag
 import siteMain from "@assets/projects/threeJsPortfolio/threeJsPortfolioMain.png";
 import spotify from "@assets/projects/threeJsPortfolio/threeJsSpotify.png";
 import coffee from "@assets/projects/threeJsPortfolio/threeJsCoffee.png";
+// // Emoji
+import iceCream from "@assets/mutantEmoji/ice_cream.svg";
+import d4 from "@assets/mutantEmoji/d4.svg";
+
 // Logos
 import html from "@assets/techLogos/html.png";
 import css from "@assets/techLogos/css.png";
@@ -17,6 +21,8 @@ import vercelLogo from "@assets/techLogos/vercel.svg";
 // Icons
 import coffeeCherries from "@assets/projects/threeJsPortfolio/coffee-cherries.svg";
 import ProjectPage from "@components/Projects/ProjectPage.astro";
+import { projectEmoji } from "./projectEmoji";
+import InlineMutantEmoji from "@components/InlineMutantEmoji.astro";
 
 export const threeJsTech: TechItem[] = [
   { techName: "HTML", techLogo: { img: html, imgAlt: "html", invert: true } },
@@ -53,7 +59,7 @@ const gallery: GalleryItem[] = [
 <Layout>
   <ProjectPage
     title="ThreeJS Portfolio Site"
-    emojis={["🌞", "☕️", "👨‍💻"]}
+    emojis={projectEmoji.threeJsPortfolio}
     technologies={threeJsTech}
     githubRepoLink="https://github.com/OptimisticShibe/ThreeJSProfessionalSite"
     link2={link2}
@@ -78,12 +84,12 @@ const gallery: GalleryItem[] = [
         User can scroll down, or click down-arrow to smooth-scroll to "About Me" section. OR user can click any one of 6 links on landing element to scroll or
         navigate away
       </li>
-      <li>User may scroll down and read. Only interactable component beyond smooth-scroll is accordion elements</li>
+      <li>User may scroll down and read. Only interactive component beyond smooth-scroll is accordion elements</li>
       <li>As user scrolls, ThreeJS 3D camera pans out—latte mug recedes into distance, coffee beans and coffee machine swing into view</li>
     </ol>
     <div slot="details">
       <section>
-        <h3>🍦 Vanilla HTML, CSS, JS</h3>
+        <h3><InlineMutantEmoji emoji={iceCream} /> Vanilla HTML, CSS, JS</h3>
         <p>
           As a personal challenge, I decided to build this site without React, Angular, or any other JS framework I was comfortable with, except for ThreeJS for
           the animated background.
@@ -95,7 +101,7 @@ const gallery: GalleryItem[] = [
         </ul>
       </section>
       <section>
-        <h3>🍩 ThreeJS</h3>
+        <h3><InlineMutantEmoji emoji={d4} /> ThreeJS</h3>
         <p>
           <a href="https://threejs.org/">ThreeJS</a> is a Javascript library for rendering and animating 3D models in the browser. This was the driving inspiration
           for this project–I wanted to make a single-page webpage that would animate objects in the background as the user scrolled down.
@@ -126,8 +132,8 @@ const gallery: GalleryItem[] = [
         </p>
         <p>
           Finding free models online and learning how to adjust their sizes and animations took longer than expected. The most difficult of all was the coffee
-          bean "asteroid field" I designed. Programatically generating the beans and randomizing their locations plus rotation vectors was a clunky process, and
-          more than once I created performance issues by rendering so many objects.
+          bean "asteroid field" I designed. programmatically generating the beans and randomizing their locations plus rotation vectors was a clunky process,
+          and more than once I created performance issues by rendering so many objects.
         </p>
       </section>
       <section>

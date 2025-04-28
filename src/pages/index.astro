@@ -22,12 +22,12 @@ import About from "@components/About.astro";
           </h2>
           <span class="text-xl font-normal mt-1"><em>He/Him • Chicago, IL</em></span>
           <div class="flex justify-center not-prose mt-1">
-            <ContactLinks />
+            <ContactLinks eagerLoad={true} />
           </div>
         </div>
       </div>
       <div class="flex not-prose place-content-center max-w-[80%]">
-        <Image src={HeadshotTali} alt="Regal Transparent" class="md:min-w-[300px] md:my-0 my-8" />
+        <Image src={HeadshotTali} alt="Headshot Tali Transparent" class="md:min-w-[300px] md:my-0 my-8" loading="eager" />
       </div>
     </section>
   </main>

@@ -1,14 +1,17 @@
 ---
-import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
 import ContentBox from "./ContentBox.astro";
 import TabPanel from "@components/TabPanel/TabPanel";
+import v from "@assets/mutantEmoji/v_hmn_y2.svg";
+import InlineMutantEmoji from "./InlineMutantEmoji.astro";
 ---
 
 <ContentBox>
   <h2 class="border-b-2 border-gold" id="about">About</h2>
-  <header>
-    I'm Rafiq, a Frontend Engineer based in Chicago experienced in delivering a diverse array of accessible, enterprise-level applications, as well as
-    UI/UX-focused personal projects.
+  <header class="mb-8">
+    <strong>I'm Rafiq</strong>
+    <InlineMutantEmoji emoji={v} /> a Frontend Engineer based in Chicago experienced in delivering a diverse array of accessible, enterprise-level applications,
+    as well as UI/UX-focused personal projects.
   </header>
   <TabPanel client:idle />
 </ContentBox>

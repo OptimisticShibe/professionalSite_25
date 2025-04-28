@@ -8,6 +8,9 @@ import { Image } from "astro:assets";
 import staticSiteAbout from "@assets/projects/staticSiteDesigns/staticSiteAbout.png";
 import staticSiteGoldProjects from "@assets/projects/staticSiteDesigns/staticSiteGoldProjects.png";
 import staticSiteAboutMe from "@assets/projects/staticSiteDesigns/staticSiteAboutMe.png";
+// // Emoji
+import rocket from "@assets/mutantEmoji/rocket.svg";
+import rainbow from "@assets/mutantEmoji/rainbow.svg";
 
 // Logos
 import reactLogo from "@assets/techLogos/reactLogo.png";
@@ -18,6 +21,8 @@ import tailwind from "@assets/techLogos/tailwindLogo.png";
 import vite from "@assets/techLogos/vite.png";
 // Icons
 import cobraIcon from "@assets/projects/staticSiteDesigns/cobra.png";
+import { projectEmoji } from "./projectEmoji";
+import InlineMutantEmoji from "@components/InlineMutantEmoji.astro";
 
 export const staticSiteTech: TechItem[] = [
   { techName: "AstroJS", techLogo: { img: astro, imgAlt: "astro", invert: true } },
@@ -53,14 +58,14 @@ const gallery: GalleryItem[] = [
 <Layout>
   <ProjectPage
     title="Static Site Designs"
-    emojis={["🚀", "💨", "🎨"]}
+    emojis={projectEmoji.staticSiteDesigns}
     technologies={staticSiteTech}
     githubRepoLink="https://github.com/OptimisticShibe/professionalSite_25"
     link2={link2}
     gallery={gallery}
   >
     <p slot="summary">
-      Various web-design projects, utilizing static-site generator <strong>AstroJS</strong> and <strong>TailwindCSS</strong> for the heavy lifting of programatic
+      Various web-design projects, utilizing static-site generator <strong>AstroJS</strong> and <strong>TailwindCSS</strong> for the heavy lifting of programmatic
       styling of content, as well as coding syntactic-sugar (as opposed to the static HTML and CSS methodology <a
         href="/projects/threeJsPortfolio"
         class="font-medium underline decoration-2">I used previously</a
@@ -82,7 +87,7 @@ const gallery: GalleryItem[] = [
     </ol>
     <div slot="details">
       <section>
-        <h3>🚀 AstroJS</h3>
+        <h3><InlineMutantEmoji emoji={rocket} />AstroJS</h3>
         <p>
           Astro is the real star of the show for these sites. The `.astro` file type is just a JSX file with frontmatter at the top for handling pure
           react-style operations (imports, props, interfaces).
@@ -100,7 +105,7 @@ const gallery: GalleryItem[] = [
         </p>
       </section>
       <section>
-        <h3>🍃 TailwindCSS</h3>
+        <h3><InlineMutantEmoji emoji={rainbow} /> TailwindCSS</h3>
         <p>This project was inspired by my desire to learn & practice Tailwind. I fell in love with it and its design philosophy immediately.</p>
         <p>
           I started my web design journey with Bootstrap and Bootstrap-styled libraries, so Tailwind's class system was intuitive from the start. Notably,
@@ -109,7 +114,7 @@ const gallery: GalleryItem[] = [
         </p>
         <p>
           Tailwind's philosophy of inline-class styling also encouraged component-driven design, which fit my style to a T. If copy-pasting the same styling
-          classes to four different `div` elements felt tedious, then it was probably a good excuse to make those elements into a reusable compnent anyways.
+          classes to four different `div` elements felt tedious, then it was probably a good excuse to make those elements into a reusable component anyways.
           <br />
           Tailwind seems to encourage tidy design and I love that.
         </p>

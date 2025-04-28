@@ -3,12 +3,14 @@ import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
 import type { TechItem } from "./ProjectPage.astro";
 import TechList from "@components/TechList.astro";
+import InlineMutantEmoji from "@components/InlineMutantEmoji.astro";
+import arrowRight from "@assets/mutantEmoji/arrow_right.svg";
 
 interface Props {
   title: string;
   summary: string;
   link: string;
-  emojis: string[];
+  emojis: ImageMetadata[];
   tech: TechItem[];
   image?: ImageMetadata;
 }
@@ -17,15 +19,22 @@ const { title, summary, link, emojis, tech, image } = Astro.props;
 ---
 
 <section class="flex flex-col sm:flex-row sm:odd:flex-row-reverse sm:not-last:pb-8">
-  <aside class="flex flex-row sm:flex-col justify-around col-span-3 items-center text-6xl sm:basis-1/5 sm:mb-0 mb-4">
-    {emojis.map((emoji) => <span>{emoji}</span>)}
+  <aside class="flex flex-row sm:flex-col justify-around col-span-3 items-center sm:basis-1/5 sm:mb-0 mb-4 space-x-10 sm:space-x-0">
+    {
+      emojis.map((emoji) => (
+        <span>
+          <Image src={emoji} alt={emoji.src.split("/").at(-1) || "mutant emoji"} class="sm:size-24 size-20" />
+        </span>
+      ))
+    }
   </aside>
-  <div class="px-0 sm:px-10 border-zinc-200 rounded-md sm:prose-lg lg:prose-xl flex flex-col gap-5 sm:basis-4/5 md:mt-0">
+  <div class="px-0 sm:px-10 border-zinc-200 rounded-md sm:prose-lg lg:prose-xl flex flex-col gap-4 sm:basis-4/5 md:mt-0">
     <a href={link} class="not-prose underline decoration-2 inline-block w-fit decoration-gold underline-offset-4">
       <h3 class="text-[var(--tw-prose-headings)] text-2xl xs:text-3xl">{title}</h3>
     </a>
     <summary class="list-none">{summary}</summary>
+    <a href={link} class="w-fit">Read More<InlineMutantEmoji emoji={arrowRight} styling="size-4" /></a>
     <TechList technologies={tech} />
-    {image && <Image src={image} alt={`${title} preview image`} class="not-prose shadow-2xl border-2 border-gold" />}
+    {image && <Image src={image} alt={`${title} preview`} class="not-prose shadow-2xl border-2 border-gold" />}
   </div>
 </section>
