@@ -25,7 +25,7 @@ const TabPanelBody = ({ activeTab }: TabPanelBodyProps) => {
                       <h3 className="text-[var(--tw-prose-headings)] text-xl xs:text-2xl">{panelEntry.name}</h3>
                       <span className="text-xs xs:text-sm italic -mt-2">
                         {convertToDateDisplay(panelEntry.startDate)}
-                        {panelEntry.endDate ? ` - ${convertToDateDisplay(panelEntry.endDate)}` : " - Present"}
+                        {panelEntry.endDate ? ` - ${convertToDateDisplay(panelEntry.endDate)}` : panelContent.name === "Education" ? "" : " - Present"}
                       </span>
                       <span className="font-semibold">{panelEntry.detail}</span>
                       <ul className="ml-4">

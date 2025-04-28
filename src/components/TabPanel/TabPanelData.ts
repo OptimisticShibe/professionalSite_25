@@ -21,6 +21,7 @@ const education: workEduItem[] = [
     name: "University of Washington",
     detail: "C# Certification",
     startDate: new Date("2017-05-01T00:00:00"),
+    endDate: new Date("2017-09-01T00:00:00"),
     logo: { img: "/logos/UniversityWashington.jpg", bgColor: "bg-[#2a1c4f]" },
   },
   {
