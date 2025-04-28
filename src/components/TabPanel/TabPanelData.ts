@@ -38,7 +38,11 @@ const workExperience: workEduItem[] = [
     detail: "Senior Consultant - Frontend Engineer",
     startDate: new Date("2022-03-01T00:00:00"),
     logo: { img: "/logos/Deloitte.png" },
-    info: ["Test", "Another Test", "Third Detail"],
+    info: [
+      "Code owner of embedded forms functional UI suite, part of broader application serving 23M unique users between 2023-25",
+      "Revitalized legacy AngularJS application with migration to React",
+      "Simplified end-to-end API with improved SQL and Hibernate persistence wrappers",
+    ],
   },
   {
     name: "Accenture Federal Services",
@@ -46,7 +50,11 @@ const workExperience: workEduItem[] = [
     startDate: new Date("2017-06-01T00:00:00"),
     endDate: new Date("2022-03-01T00:00:00"),
     logo: { img: "/logos/Accenture.png" },
-    info: ["Test", "Another Test", "Third Detail"],
+    info: [
+      "Orchestrated section 508-compliance overhaul for agile team",
+      "Spearheaded Typescript modernization effort, demonstrating efficiency of component-driven design architecture",
+      "Configured Hibernate criterion and API response body structures",
+    ],
   },
 ];
 

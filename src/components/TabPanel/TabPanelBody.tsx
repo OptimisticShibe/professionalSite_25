@@ -21,7 +21,7 @@ const TabPanelBody = ({ activeTab }: TabPanelBodyProps) => {
                     <div className={`rounded-full overflow-hidden absolute -left-16 top-4 flex size-12 shrink-0 ring-2 ${panelEntry.logo.bgColor}`}>
                       <img src={panelEntry.logo.img} className={` rounded-full w-max h-max aspect-square object-contain }`} alt={panelEntry.name} />
                     </div>
-                    <div className="flex flex-col flex-1 justify-start gap-1">
+                    <div className="flex flex-col flex-1 justify-start gap-1 mr-4">
                       <h3 className="text-[var(--tw-prose-headings)] text-xl xs:text-2xl">{panelEntry.name}</h3>
                       <span className="text-xs xs:text-sm italic -mt-2">
                         {convertToDateDisplay(panelEntry.startDate)}

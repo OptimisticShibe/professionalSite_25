@@ -1,9 +1,9 @@
 ---
-import { Image } from "astro:assets";
 import ContentBox from "./ContentBox.astro";
 import TabPanel from "@components/TabPanel/TabPanel";
 import v from "@assets/mutantEmoji/v_hmn_y2.svg";
 import InlineMutantEmoji from "./InlineMutantEmoji.astro";
+import arrowRight from "@assets/mutantEmoji/arrow_right.svg";
 ---
 
 <ContentBox>
@@ -14,4 +14,5 @@ import InlineMutantEmoji from "./InlineMutantEmoji.astro";
     as well as UI/UX-focused personal projects.
   </header>
   <TabPanel client:idle />
+  <p><a href={"/resume"} class="pt-4">Full Resume<InlineMutantEmoji emoji={arrowRight} styling="size-4" /></a></p>
 </ContentBox>
