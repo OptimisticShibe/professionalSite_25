@@ -6,16 +6,16 @@ interface navLink {
 
 export const navLinks: navLink[] = [
   {
-    label: "Projects",
-    url: "/#projects",
-  },
-  {
     label: "Resume",
     url: "/resume",
     target: "_blank",
   },
   {
-    label: "Github",
+    label: "Projects",
+    url: "/#projects",
+  },
+  {
+    label: "GitHub",
     url: "https://github.com/OptimisticShibe/professionalSite_25",
   },
 ];

@@ -2,7 +2,6 @@
 import { Image } from "astro:assets";
 
 import externalLink from "@assets/svg/externalLink.svg";
-import githubLogo from "@assets/svg/github.svg";
 import type { ImageMetadata } from "astro";
 import ContentBox from "@components/ContentBox.astro";
 import TechList from "@components/TechList.astro";
@@ -52,14 +51,22 @@ const { title, emojis, technologies, githubRepoLink, link2, gallery } = Astro.pr
   <section>
     <div class="flex flex-col md:grid grid-cols-2 gap-5 mb-5">
       <summary class="list-none not-prose my-auto"> <slot name="summary" /></summary>
-      <nav class="p-1 rounded-lg dark:bg-zinc-900 divide-y-2 bg-zinc-100 divide-zinc-200 md:my-auto not-prose flex flex-col">
-        <h2 class="ml-2 mt-2 text-center text-2xl mb-4 text-[var(--tw-prose-headings)]">Contents</h2>
-        <div class="grid grid-cols-2 grid-rows-3 items-center text-xl grow min-h-24">
-          <span class="text-center"><a class="underline decoration-2 text-center" href="#links">Links</a></span>
+      <nav class="p-1 rounded-lg dark:bg-zinc-900 bg-zinc-100 divide-zinc-200 md:my-auto not-prose flex flex-col">
+        <h2 class="mx-2 mt-2 text-center text-2xl mb-2 text-[var(--tw-prose-headings)]">Links</h2>
+        <div class="grid grid-cols-2 grid-rows-3 items-center text-xl grow min-h-24 mb-2 space-y-2">
+          <span class="text-center"
+            ><a class="underline decoration-2 text-center" href={link2.url}>Live App<Image src={externalLink} alt="external link" class="w-5 inline" /></a
+            ></span
+          >
+          <span class="text-center"
+            ><a class="underline decoration-2 text-center" href={githubRepoLink}>GitHub<Image src={externalLink} alt="external link" class="w-5 inline" /></a
+            ></span
+          >
+          <h2 class="mx-2 mt-0 text-center text-2xl mb-2 col-span-2 text-[var(--tw-prose-headings)]">Contents</h2>
           <span class="text-center"><a class="underline decoration-2 text-center" href="#uxFlow">UX Flow</a></span>
           <span class="text-center"><a class="underline decoration-2 text-center" href="#details">Tech Details</a></span>
           <span class="text-center"><a class="underline decoration-2 text-center" href="#challenges">Challenges</a></span>
-          <span class="text-center col-span-2"><a class="underline decoration-2 text-center" href="#gallery">Gallery</a></span>
+          <span class="text-center"><a class="underline decoration-2 text-center" href="#gallery">Gallery</a></span>
         </div>
       </nav>
     </div>
@@ -71,27 +78,6 @@ const { title, emojis, technologies, githubRepoLink, link2, gallery } = Astro.pr
     <h2 class="border-l-2 border-gold pl-2">Technologies</h2>
     <!-- <div class="flex justify-around"> -->
     <TechList technologies={technologies} />
-  </section>
-  <section id="links" class="pb-4">
-    <h2 class="border-l-2 border-gold pl-2">Links</h2>
-    <div class="flex flex-col md:flex-row justify-around items-center h-full gap-4 my-4">
-      <a
-        class="max-w-80 ring-2 ring-gold rounded-xl flex items-center p-2 w-full gap-2 dark:hover:bg-zinc-700 hover:bg-zinc-200 dark:bg-zinc-800 bg-zinc-100 decoration-2 justify-between min-h-16"
-        href={githubRepoLink}
-      >
-        <Image src={githubLogo} alt="github logo" class="not-prose w-8 invert dark:invert-0" />
-        <span class="text-xl">Github Repo</span>
-        <Image src={externalLink} alt="external link" class="w-5 ml-1 not-prose invert dark:invert-0" />
-      </a>
-      <a
-        class="max-w-80 ring-2 ring-gold rounded-xl flex items-center p-2 w-full gap-2 dark:hover:bg-zinc-700 hover:bg-zinc-200 dark:bg-zinc-800 bg-zinc-100 decoration-2 justify-between min-h-16"
-        href={link2.url}
-      >
-        <Image src={link2.img} alt={"test"} class="not-prose w-10 invert dark:invert-0" />
-        <span class="text-xl">{link2.text}</span>
-        <Image src={externalLink} alt="external link" class="w-5 ml-1 not-prose invert dark:invert-0" />
-      </a>
-    </div>
   </section>
   <section id="uxFlow">
     <h2 class="border-l-2 border-gold pl-2">UX Flow</h2>
@@ -112,7 +98,7 @@ const { title, emojis, technologies, githubRepoLink, link2, gallery } = Astro.pr
         gallery?.map((galleryItem) => {
           return (
             <figure>
-              <Image src={galleryItem.image.img} alt={galleryItem.image.imgAlt} class="not-prose shadow-sm" />
+              <Image src={galleryItem.image.img} alt={galleryItem.image.imgAlt} class="not-prose shadow-sm border-2 border-gold" />
               <figcaption>{galleryItem.caption}</figcaption>
             </figure>
           );
