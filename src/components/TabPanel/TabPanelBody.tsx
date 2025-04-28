@@ -28,7 +28,7 @@ const TabPanelBody = ({ activeTab }: TabPanelBodyProps) => {
                         {panelEntry.endDate ? ` - ${convertToDateDisplay(panelEntry.endDate)}` : " - Present"}
                       </span>
                       <span className="font-semibold">{panelEntry.detail}</span>
-                      <ul className="list-inside">
+                      <ul className="ml-4">
                         {panelEntry.info?.map((info, i) => (
                           <li key={i} className="list-disc">
                             {info}

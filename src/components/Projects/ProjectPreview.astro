@@ -34,7 +34,13 @@ const { title, summary, link, emojis, tech, image } = Astro.props;
     </a>
     <summary class="list-none">{summary}</summary>
     <a href={link} class="w-fit">Read More<InlineMutantEmoji emoji={arrowRight} styling="size-4" /></a>
-    <TechList technologies={tech} />
-    {image && <Image src={image} alt={`${title} preview`} class="not-prose shadow-2xl border-2 border-gold" />}
+    <TechList technologies={tech} preview={true} />
+    {
+      image && (
+        <a href={link}>
+          <Image src={image} alt={`${title} preview`} class="not-prose shadow-2xl border-2 border-gold" />
+        </a>
+      )
+    }
   </div>
 </section>

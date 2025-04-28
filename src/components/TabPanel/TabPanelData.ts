@@ -52,7 +52,7 @@ const workExperience: workEduItem[] = [
     logo: { img: "/logos/Accenture.png" },
     info: [
       "Orchestrated section 508-compliance overhaul for agile team",
-      "Spearheaded Typescript modernization effort, demonstrating efficiency of component-driven design architecture",
+      "Spearheaded TypeScript modernization effort, demonstrating efficiency of component-driven design architecture",
       "Configured Hibernate criterion and API response body structures",
     ],
   },

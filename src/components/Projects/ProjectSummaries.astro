@@ -6,10 +6,11 @@ import ProjectPreview from "@components/Projects/ProjectPreview.astro";
 import top5Spotify from "@assets/projects/top5spotify/top5spotify.png";
 import threeJsMain from "@assets/projects/threeJsPortfolio/threeJsPortfolioMain.png";
 import staticSiteAbout from "@assets/projects/staticSiteDesigns/staticSiteAbout.png";
-import { top5SpotifyTech } from "src/pages/projects/top5spotify.astro";
-import { threeJsTech } from "src/pages/projects/threeJsPortfolio.astro";
-import { staticSiteTech } from "src/pages/projects/staticSiteDesigns.astro";
+import { top5SpotifyTech } from "src/pages/projects/top-5-spotify.astro";
+
 import { projectEmoji } from "src/pages/projects/projectEmoji";
+import { threeJsTech } from "src/pages/projects/three-js-portfolio.astro";
+import { staticSiteTech } from "src/pages/projects/static-site-designs.astro";
 ---
 
 <ContentBox>
@@ -22,7 +23,7 @@ import { projectEmoji } from "src/pages/projects/projectEmoji";
     <ProjectPreview
       title="Top 5 Spotify"
       summary="A hobby project built from the ground up to practice using ReactJS, responsive design, and asynchronous integration with a public API."
-      link="/projects/top5spotify"
+      link="/projects/top-5-spotify"
       emojis={projectEmoji.top5Spotify}
       tech={top5SpotifyTech}
       image={top5Spotify}
@@ -30,7 +31,7 @@ import { projectEmoji } from "src/pages/projects/projectEmoji";
     <ProjectPreview
       title="ThreeJS Portfolio"
       summary="A vaporwave & coffee-themed personal/portfolio website created with pure vanilla HTML, CSS, JS except the background, which is crafted by ThreeJS, a Javascript library for rendering and animated 3D models in the browser."
-      link="/projects/threeJsPortfolio"
+      link="/projects/three-js-portfolio"
       emojis={projectEmoji.threeJsPortfolio}
       tech={threeJsTech}
       image={threeJsMain}
@@ -38,7 +39,7 @@ import { projectEmoji } from "src/pages/projects/projectEmoji";
     <ProjectPreview
       title="Static Site Designs"
       summary="Including this site, I've designed, built, and deployed 2 responsive websites with AstroJS and Tailwind CSS."
-      link="/projects/staticSiteDesigns"
+      link="/projects/static-site-designs"
       emojis={projectEmoji.staticSiteDesigns}
       tech={staticSiteTech}
       image={staticSiteAbout}
