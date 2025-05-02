@@ -58,11 +58,12 @@ const gallery: GalleryItem[] = [
     caption: "App Main: Demo Mode (Unauthorized User)",
   },
 ];
+const projectAge = new Date().getFullYear() - 2021;
 ---
 
 <Layout>
   <ProjectPage
-    title="Top-Five Spotify"
+    title="Top 5 Spotify (2021)"
     emojis={projectEmoji.top5Spotify}
     technologies={top5SpotifyTech}
     githubRepoLink="https://github.com/OptimisticShibe/spotify-stats-dashboard"
@@ -70,8 +71,11 @@ const gallery: GalleryItem[] = [
     gallery={gallery}
   >
     <p slot="summary">
-      A hobby project built from the ground up to create a useful, interesting spotify data-display app, and to practice using ReactJS and integrating with a
-      public API.
+      My "I'm going to teach myself React" project from 2021. A hobby app built from the ground up to create a useful, interesting spotify data-display app, and
+      to practice using ReactJS and integrating with a public API.
+      <br />
+      While not representative of my current React skills or design philosophies, at <strong>{projectAge} years old</strong> it serves as a good starting foundation
+      for my React journey today.
     </p>
 
     <ol slot="goal">
