@@ -29,7 +29,7 @@ import { projectEmoji } from "./projectEmoji";
 import InlineMutantEmoji from "@components/InlineMutantEmoji.astro";
 
 export const top5SpotifyTech: TechItem[] = [
-  { techName: "ReactJS", techLogo: { img: reactLogo, imgAlt: "React" } },
+  { techName: "React", techLogo: { img: reactLogo, imgAlt: "React" } },
   { techName: "Axios", techLogo: { img: axiosLogo, imgAlt: "Axios" } },
   {
     techName: "ExpressJS",
@@ -72,7 +72,7 @@ const projectAge = new Date().getFullYear() - 2021;
   >
     <p slot="summary">
       My "I'm going to teach myself React" project from 2021. A hobby app built from the ground up to create a useful, interesting spotify data-display app, and
-      to practice using ReactJS and integrating with a public API.
+      to practice using React and integrating with a public API.
       <br />
       While not representative of my current React skills or design philosophies, at <strong>{projectAge} years old</strong> it serves as a good starting foundation
       for my React journey today.
@@ -125,7 +125,7 @@ const projectAge = new Date().getFullYear() - 2021;
           whitelist, and will return a <code>403 error</code> if an endpoint call is made after authentication.
         </p>
         <p>
-          <strong>Solution: </strong> Catching the HTML error and displaying demo data for the user instead, along with an alert banner notifying them of the circumstance.
+          <strong>Solution: </strong> Catching the HTTP error and displaying demo data for the user instead, along with an alert banner notifying them of the circumstance.
         </p>
         <div class="flex justify-center">
           <Image src={top5DemoModal} alt="Top 5 Demo Modal" class="border-2 border-gold" />
