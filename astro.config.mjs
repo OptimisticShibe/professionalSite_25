@@ -14,6 +14,7 @@ export default defineConfig({
   },
   integrations: [react(), mdx()],
   redirects: {
-    "/resume": "/resume.pdf",
+    "/resume": "/Rafiq_Ramadan.pdf",
+    "/resume-ats": "/rafiqramadan.pdf",
   },
 });
