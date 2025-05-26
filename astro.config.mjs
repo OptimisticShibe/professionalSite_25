@@ -16,5 +16,7 @@ export default defineConfig({
   redirects: {
     "/resume": "/Rafiq_Ramadan.pdf",
     "/resume-ats": "/rafiqramadan.pdf",
+    "/aws-cloud-practitioner-cert": "/Aws_Certified_Cloud_Practitioner_Certificate.pdf",
+    "/ic-agile-cert": "/ICAgile_Fundamentals_Certificate.pdf",
   },
 });
