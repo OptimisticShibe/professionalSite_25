@@ -8,14 +8,23 @@ interface workEduItem {
     bgColor?: string;
   };
   info?: string[];
+  link?: string;
 }
 
 const education: workEduItem[] = [
+  {
+    name: "AWS",
+    detail: "Certified Cloud Practitioner Certification",
+    startDate: new Date("2025-05-23T00:00:00"),
+    logo: { img: "/logos/AwsCloudCert.png", bgColor: "bg-white" },
+    link: "/aws-cloud-practitioner-cert",
+  },
   {
     name: "ICAgile",
     detail: "Agile Fundamentals Certification",
     startDate: new Date("2019-05-01T00:00:00"),
     logo: { img: "/logos/ICAgile.png", bgColor: "bg-white" },
+    link: "/ic-agile-cert",
   },
   {
     name: "University of Washington",
@@ -36,13 +45,13 @@ const education: workEduItem[] = [
 const workExperience: workEduItem[] = [
   {
     name: "Deloitte",
-    detail: "Senior Consultant - Frontend Engineer",
+    detail: "Senior Frontend Engineer",
     startDate: new Date("2022-03-01T00:00:00"),
     logo: { img: "/logos/Deloitte.png" },
     info: [
-      "Code owner of embedded forms functional UI suite, part of broader application serving 23M unique users between 2023-25",
-      "Revitalized legacy AngularJS application with migration to React",
-      "Simplified end-to-end API with improved SQL and Hibernate persistence wrappers",
+      "Led the design and development of a functional UI suite for embedded forms, enhancing the user experience for 23 million unique users between 2023 and 2025",
+      "Leveraged the React Context API to maintain data state integrity across the application’s notification system",
+      "Simplified end-to-end API with improved SQL and Hibernate persistence wrappers, reducing the number of necessary API calls by 50%",
     ],
   },
   {
