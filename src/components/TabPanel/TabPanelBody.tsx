@@ -1,7 +1,5 @@
 import { eduWorkData } from "./TabPanelData";
 
-const arrow = "@assets/mutantEmoji/arrow_right.svg";
-
 interface TabPanelBodyProps {
   activeTab: number;
 }
@@ -33,7 +31,7 @@ const TabPanelBody = ({ activeTab }: TabPanelBodyProps) => {
                         <a href={panelEntry.link}>
                           <span className="font-semibold flex">
                             {panelEntry.detail}
-                            <img src="src/assets/mutantEmoji/arrow_right.svg" alt="arrow" className="-rotate-45 w-4 ml-1" />
+                            <img src="/arrow_right.svg" alt="arrow" className="-rotate-45 w-4 ml-1" />
                           </span>
                         </a>
                       ) : (
