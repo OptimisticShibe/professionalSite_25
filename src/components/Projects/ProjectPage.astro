@@ -26,15 +26,10 @@ interface Props {
   emojis: ImageMetadata[];
   technologies: TechItem[];
   githubRepoLink: string;
-  link2: {
-    img: ImageMetadata;
-    text: string;
-    url: string;
-  };
   gallery: GalleryItem[];
 }
 
-const { title, emojis, technologies, githubRepoLink, link2, gallery } = Astro.props;
+const { title, emojis, technologies, githubRepoLink, gallery } = Astro.props;
 ---
 
 <ContentBox>
@@ -52,17 +47,13 @@ const { title, emojis, technologies, githubRepoLink, link2, gallery } = Astro.pr
     <div class="flex flex-col md:grid grid-cols-2 gap-5 mb-5">
       <summary class="list-none not-prose my-auto"> <slot name="summary" /></summary>
       <nav class="p-1 rounded-lg dark:bg-zinc-900 bg-zinc-100 divide-zinc-200 md:my-auto not-prose flex flex-col">
-        <h2 class="mx-2 mt-2 text-center text-2xl mb-2 text-[var(--tw-prose-headings)]">Links</h2>
         <div class="grid grid-cols-2 grid-rows-3 items-center text-xl grow min-h-24 mb-2 space-y-2">
-          <span class="text-center"
-            ><a class="underline decoration-2 text-center" href={link2.url}>Live App<Image src={externalLink} alt="external link" class="w-5 inline" /></a
-            ></span
-          >
-          <span class="text-center"
-            ><a class="underline decoration-2 text-center" href={githubRepoLink}>GitHub<Image src={externalLink} alt="external link" class="w-5 inline" /></a
-            ></span
-          >
           <h2 class="mx-2 mt-0 text-center text-2xl mb-2 col-span-2 text-[var(--tw-prose-headings)]">Contents</h2>
+          <span class="text-center col-span-2"
+            ><a class="underline decoration-2 text-center" href={githubRepoLink}
+              >GitHub Repo<Image src={externalLink} alt="external link" class="w-5 inline" /></a
+            ></span
+          >
           <span class="text-center"><a class="underline decoration-2 text-center" href="#uxFlow">UX Flow</a></span>
           <span class="text-center"><a class="underline decoration-2 text-center" href="#details">Tech Details</a></span>
           <span class="text-center"><a class="underline decoration-2 text-center" href="#challenges">Challenges</a></span>
