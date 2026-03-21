@@ -7,6 +7,7 @@ import top5Spotify from "@assets/projects/top5spotify/top5spotify.png";
 import threeJsMain from "@assets/projects/threeJsPortfolio/threeJsPortfolioMain.png";
 import staticSiteAbout from "@assets/projects/staticSiteDesigns/staticSiteAbout.png";
 import irsPageMain from "@assets/projects/irs/formsPageMain.png";
+import workOhioMain from "@assets/projects/workOhio/workOhioMain.png";
 
 import { top5SpotifyTech } from "src/pages/projects/top-5-spotify.astro";
 import { threeJsTech } from "src/pages/projects/three-js-portfolio.astro";
@@ -14,6 +15,7 @@ import { staticSiteTech } from "src/pages/projects/static-site-designs.astro";
 
 import { projectEmoji } from "src/pages/projects/projectEmoji";
 import { irsFormsTech } from "src/pages/projects/irs-forms.astro";
+import { workOhioTech } from "src/pages/projects/work-ohio.astro";
 ---
 
 <ContentBox>
@@ -29,6 +31,14 @@ import { irsFormsTech } from "src/pages/projects/irs-forms.astro";
       emojis={projectEmoji.irs}
       tech={irsFormsTech}
       image={irsPageMain}
+    />
+    <ProjectPreview
+      title="Work Ohio"
+      summary="Contract work with the state of Ohio for Lieutenant Governor Jim Tressel's Ohio workforce initiative. A site built to help Ohio residents find work and training opportunities."
+      link="/projects/work-ohio"
+      emojis={projectEmoji.workOhio}
+      tech={workOhioTech}
+      image={workOhioMain}
     />
   </div>
   <h2 class="border-b-2 border-gold mt-0" id="projects">Personal Projects</h2>

@@ -1,0 +1,112 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { type GalleryItem, type TechItem } from "@components/Projects/ProjectPage.astro";
+import ProjectPage from "@components/Projects/ProjectPage.astro";
+
+// Images
+import formsPageMain from "@assets/projects/irs/formsPageMain.png";
+import oic from "@assets/projects/irs/oic.png";
+import workOhioMain from "@assets/projects/workOhio/workOhioMain.png";
+import quoteBlocks from "@assets/projects/workOhio/quoteBlocks.png";
+import partnerCards from "@assets/projects/workOhio/partnerCards.png";
+
+// Logos
+import reactLogo from "@assets/techLogos/reactLogo.png";
+import storybookLogo from "@assets/techLogos/storybook.svg";
+import cloudinary from "@assets/techLogos/cloudinary.svg";
+import contentful from "@assets/techLogos/contentful.svg";
+import awsLambda from "@assets/techLogos/aws-lambda.svg";
+import scss from "@assets/techLogos/scss.svg";
+
+// Icons
+import { projectEmoji } from "./projectEmoji";
+
+export const workOhioTech: TechItem[] = [
+  {
+    techName: "React 18",
+    techLogo: {
+      img: reactLogo,
+      imgAlt: "React logo",
+    },
+  },
+  { techName: "Contentful", techLogo: { img: contentful, imgAlt: "Contentful logo" } },
+  { techName: "Cloudinary", techLogo: { img: cloudinary, imgAlt: "Cloudinary logo" } },
+  { techName: "Storybook", techLogo: { img: storybookLogo, imgAlt: "Storybook logo" } },
+  { techName: "AWS Lambda", techLogo: { img: awsLambda, imgAlt: "AWS Lambda logo" } },
+  { techName: "Scss", techLogo: { img: scss, imgAlt: "Scss logo" } },
+];
+const gallery: GalleryItem[] = [
+  {
+    image: { img: workOhioMain, imgAlt: "Work.Ohio main landing page" },
+    caption: "Main landing page for Work.Ohio.Gov.",
+  },
+  {
+    image: { img: quoteBlocks, imgAlt: "Quote Blocks component" },
+    caption: "Custom Quote Blocks component I built for the front page of Work Ohio.",
+  },
+  {
+    image: { img: partnerCards, imgAlt: "Partner Cards" },
+    caption: "Custom Partner Cards component I built, allowing users to call or visit external partner sites for job opportunities/information.",
+  },
+];
+---
+
+<Layout>
+  <ProjectPage title="Work.Ohio" emojis={projectEmoji.workOhio} technologies={workOhioTech} gallery={gallery}>
+    <p slot="summary">
+      The entirety of the <a href="https://work.ohio.gov/" class="font-medium underline decoration-2">work.ohio.gov</a> site. This project built upon the <a
+        href="https://ux.ohio.gov/"
+        class="font-medium underline decoration-2">Ohio Design System</a
+      > to deliver an informative public website offering job and training opportunity connections to Ohio residents.
+    </p>
+
+    <ol slot="goal">
+      <li>Deliver a working version of work.ohio.gov within 2 months.</li>
+      <li>Create two novel components to be integrated with the Ohio Design System for use in WorkOhio and beyond.</li>
+      <li>Configure Contentful CMS for easy content/info updates from the Lt. Governor's office staff.</li>
+      <li>Integrate the browser location services api to sort opportunities by user location.</li>
+    </ol>
+
+    <ol slot="uxFlow">
+      <li>User navigates to Work.Ohio.Gov (no login needed).</li>
+      <li>Static site contains external resources and links–no complex inner functionality.</li>
+    </ol>
+    <div slot="details">
+      <section>
+        <p>
+          The site was largely designed through the Contentful CMS platform. This work was performed primarily by non-technical staff wherever possible. My
+          development tasks were focused on custom component design and Contentful integration with design system and the Ohio ID system.
+        </p>
+        <p>
+          The majority of my efforts were in the development of the <strong>Partner Card</strong> and <strong>Quote Block</strong> components (see <a
+            href="/projects/work-ohio#gallery"
+            class="font-medium underline decoration-2">gallery</a
+          > below ).
+        </p>
+      </section>
+    </div>
+    <div slot="challenges">
+      <section>
+        <h3>Aggressive Timeline & Loose Requirements</h3>
+        <p>
+          The overall design of the site was set pretty early, but content and interactivity details came at a trickle, often deep into development efforts.
+        </p>
+        <p>
+          A notable example is the Partner Cards component. The visual design did not change through development, however the requirement for them to be
+          sortable by user location was communicated after the approved design was finished and deployed to production.
+          <br />
+          And again later, we were informed that we needed to be able to "pin" cards to the front of the sorting order, irrespective of user location. This requirement
+          came last-minute before project delivery.
+          <br />
+          Thanks to my cautious design standards however, I had built in a basic override to allow for this to work in production immediately via Contentful update,
+          while the full development change was able to be made and propagated a week later. Thus saving our team from needing to request last-minute timeline extensions
+          and impressing the client with our fast adaptability.
+        </p>
+        <p>
+          While challenging, my experience prepared me well and I was able to both design with extra redundancies in place, as well as properly delegate
+          communication tasks to project management teams, especially when promised timelines would be strained.
+        </p>
+      </section>
+    </div>
+  </ProjectPage>
+</Layout>
