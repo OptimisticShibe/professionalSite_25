@@ -11,15 +11,20 @@ import techWorker from "@assets/mutantEmoji/technologist_o2.svg";
 import rocket from "@assets/mutantEmoji/rocket.svg";
 import computer from "@assets/mutantEmoji/computer.svg";
 import palette from "@assets/mutantEmoji/artist_palette.svg";
+// Irs
+import curlPage from "@assets/mutantEmoji/curled_page.svg";
+import calendarSpiral from "@assets/mutantEmoji/calendar_spiral.svg";
+import pen from "@assets/mutantEmoji/pen.svg";
 
-interface projectEmojiObj {
-  top5Spotify: ImageMetadata[];
-  staticSiteDesigns: ImageMetadata[];
-  threeJsPortfolio: ImageMetadata[];
-}
+// interface projectEmojiObj {
+//   top5Spotify: ImageMetadata[];
+//   staticSiteDesigns: ImageMetadata[];
+//   threeJsPortfolio: ImageMetadata[];
+// }
 
-export const projectEmoji: projectEmojiObj = {
+export const projectEmoji: { [name: string]: ImageMetadata[] } = {
   top5Spotify: [musicNote, crt, lp],
   staticSiteDesigns: [sun, coffee, techWorker],
   threeJsPortfolio: [rocket, computer, palette],
+  irs: [curlPage, calendarSpiral, pen],
 };

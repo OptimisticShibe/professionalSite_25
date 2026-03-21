@@ -25,7 +25,7 @@ interface Props {
   title: string;
   emojis: ImageMetadata[];
   technologies: TechItem[];
-  githubRepoLink: string;
+  githubRepoLink?: string;
   gallery: GalleryItem[];
 }
 
@@ -49,11 +49,16 @@ const { title, emojis, technologies, githubRepoLink, gallery } = Astro.props;
       <nav class="p-1 rounded-lg dark:bg-zinc-900 bg-zinc-100 divide-zinc-200 md:my-auto not-prose flex flex-col">
         <div class="grid grid-cols-2 grid-rows-3 items-center text-xl grow min-h-24 mb-2 space-y-2">
           <h2 class="mx-2 mt-0 text-center text-2xl mb-2 col-span-2 text-[var(--tw-prose-headings)]">Contents</h2>
-          <span class="text-center col-span-2"
-            ><a class="underline decoration-2 text-center" href={githubRepoLink}
-              >GitHub Repo<Image src={externalLink} alt="external link" class="w-5 inline" /></a
-            ></span
-          >
+          {
+            githubRepoLink && (
+              <span class="text-center col-span-2">
+                <a class="underline decoration-2 text-center" href={githubRepoLink}>
+                  GitHub Repo
+                  <Image src={externalLink} alt="external link" class="w-5 inline" />
+                </a>
+              </span>
+            )
+          }
           <span class="text-center"><a class="underline decoration-2 text-center" href="#uxFlow">UX Flow</a></span>
           <span class="text-center"><a class="underline decoration-2 text-center" href="#details">Tech Details</a></span>
           <span class="text-center"><a class="underline decoration-2 text-center" href="#challenges">Challenges</a></span>

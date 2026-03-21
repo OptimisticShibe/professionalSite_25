@@ -50,6 +50,7 @@ const workExperience: workEduItem[] = [
     logo: { img: "/logos/Deloitte.png" },
     info: [
       "Led the design and development of a functional UI suite for embedded forms, enhancing the user experience for 23 million unique users between 2023 and 2025",
+      "Spearheaded Statewide One-Time Password system redesign with modern NodeJS AWS stack, improving response latency by an average of 5 seconds per request.",
       "Rebuilt a state agency's One-Time-Password system from the ground-up with modern AWS Lambda, DynamoDB and notification services",
       "Leveraged the React Context API to maintain data state integrity across the application’s notification system",
       "Simplified end-to-end API with improved SQL and Hibernate persistence wrappers, reducing the number of necessary API calls by 50%",

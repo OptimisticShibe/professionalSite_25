@@ -6,17 +6,35 @@ import ProjectPreview from "@components/Projects/ProjectPreview.astro";
 import top5Spotify from "@assets/projects/top5spotify/top5spotify.png";
 import threeJsMain from "@assets/projects/threeJsPortfolio/threeJsPortfolioMain.png";
 import staticSiteAbout from "@assets/projects/staticSiteDesigns/staticSiteAbout.png";
-import { top5SpotifyTech } from "src/pages/projects/top-5-spotify.astro";
+import irsPageMain from "@assets/projects/irs/formsPageMain.png";
 
-import { projectEmoji } from "src/pages/projects/projectEmoji";
+import { top5SpotifyTech } from "src/pages/projects/top-5-spotify.astro";
 import { threeJsTech } from "src/pages/projects/three-js-portfolio.astro";
 import { staticSiteTech } from "src/pages/projects/static-site-designs.astro";
+
+import { projectEmoji } from "src/pages/projects/projectEmoji";
+import { irsFormsTech } from "src/pages/projects/irs-forms.astro";
 ---
 
 <ContentBox>
-  <h2 class="border-b-2 border-gold mt-0" id="projects">Projects</h2>
+  <h2 class="border-b-2 border-gold mt-0" id="projects">Professional Works</h2>
   <header class="border-0 sm:mb-8 mb-0">
-    Please feel free to visit the individual pages to learn about each in greater detail, as well as access their code source and live app.
+    Each individual page includes deeper detail, as well as live links and open-source code, when available (project-depending).
+  </header>
+  <div class="flex flex-col gap-8">
+    <ProjectPreview
+      title="IRS.gov -> Forms"
+      summary="A federal contract through Deloitte, this project built and delivered an embedded forms system available to all US residents."
+      link="/projects/irs-forms"
+      emojis={projectEmoji.irs}
+      tech={irsFormsTech}
+      image={irsPageMain}
+    />
+  </div>
+  <h2 class="border-b-2 border-gold mt-0" id="projects">Personal Projects</h2>
+  <header class="border-0 sm:mb-8 mb-0">
+    These projects are no longer hosted live and in some cases are outdated examples of my current development skills, style, and strategies. They serve as a
+    roadmap of my development from starting this career in 2017 however and I'm still proud of them for what (and when) they were.
   </header>
   <div class="flex flex-col gap-8">
     <ProjectPreview

@@ -1,0 +1,112 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { type GalleryItem, type TechItem } from "@components/Projects/ProjectPage.astro";
+import ProjectPage from "@components/Projects/ProjectPage.astro";
+
+// Images
+import formsPageMain from "@assets/projects/irs/formsPageMain.png";
+import oic from "@assets/projects/irs/oic.png";
+// // Emoji
+import rocket from "@assets/mutantEmoji/rocket.svg";
+import rainbow from "@assets/mutantEmoji/rainbow.svg";
+
+// Logos
+import reactLogo from "@assets/techLogos/reactLogo.png";
+import jenkinsLogo from "@assets/techLogos/jenkins.svg";
+import jestLogo from "@assets/techLogos/jest.svg";
+import javaLogo from "@assets/techLogos/java.svg";
+import storybookLogo from "@assets/techLogos/storybook.svg";
+import reduxLogo from "@assets/techLogos/redux.svg";
+// Icons
+import cobraIcon from "@assets/projects/staticSiteDesigns/cobra.png";
+import { projectEmoji } from "./projectEmoji";
+import InlineMutantEmoji from "@components/InlineMutantEmoji.astro";
+
+export const irsFormsTech: TechItem[] = [
+  {
+    techName: "React 17",
+    techLogo: {
+      img: reactLogo,
+      imgAlt: "React logo",
+    },
+  },
+  { techName: "Java", techLogo: { img: javaLogo, imgAlt: "Java logo" } },
+  { techName: "Redux", techLogo: { img: reduxLogo, imgAlt: "redux logo" } },
+  { techName: "Jenkins CI/CD", techLogo: { img: jenkinsLogo, imgAlt: "Jenkins logo" } },
+  { techName: "Jest", techLogo: { img: jestLogo, imgAlt: "Jest unit testing logo" } },
+  { techName: "Storybook", techLogo: { img: storybookLogo, imgAlt: "Storybook logo" } },
+];
+const gallery: GalleryItem[] = [
+  {
+    image: { img: formsPageMain, imgAlt: "IRS.gov forms page main landing" },
+    caption: "Main landing page for IRS.gov forms page.",
+  },
+  {
+    image: { img: oic, imgAlt: "Offer-In-Compromise modal" },
+    caption: "Offer in compromise modal–utilizing global state to manage user status between forms and other site functions",
+  },
+];
+---
+
+<Layout>
+  <ProjectPage title="IRS.gov -> Forms" emojis={projectEmoji.irs} technologies={irsFormsTech} gallery={gallery}>
+    <p slot="summary">
+      An addition to <a href="/projects/three-js-portfolio" class="font-medium underline decoration-2">IRS.gov</a>, this project resulted in the build-out of an
+      integrated, embedded forms system on the site for civilian users. Users may log in, access fillable PDF forms relevant to their IRS needs, and print or
+      submit them online without the need for printing, filling by hand, and mailing.
+    </p>
+
+    <ol slot="goal">
+      <li>Deliver the fully functioning forms interface, minus the forms themselves as these were provided by a 3rd-party.</li>
+      <li>Design a novel webpage congruent with IRS.gov design style and standards.</li>
+      <li>Test-driven development from start to finish with an always-minimum code coverage of 80% or more.</li>
+    </ol>
+
+    <ol slot="uxFlow">
+      <li>User logs in via IRS.gov "ID.ME" system.</li>
+      <li>Navigate to /forms tab.</li>
+      <li>Optionally search, then select a form. These are already filtered via backend processes, as some users have open cases requiring certain forms.</li>
+      <li>User fills out form, and either saves a copy to their device or submits directly to the IRS.</li>
+    </ol>
+    <div slot="details">
+      <section>
+        <p>Details are limited due to disclosure agreements.</p>
+        <p>
+          IRS.gov forms is additional React development on top of the existing site, and is built with standard React kit, including Jest unit testing and Redux
+          state management. Some novel approaches were taken with this build-out, but the primary objective was building cleanly and securely.
+        </p>
+        <p>
+          A highlight of this project is that it was truly and fully <strong>agile</strong>. Our dedicated scrum master maintained regular standup,
+          retrospective, and story point poker meetings.
+          <br />
+          As a result, project development was rapid, smooth, and team members were able to work according to their strengths, and tactically focus on weak points
+          throughout the project.
+        </p>
+      </section>
+    </div>
+    <div slot="challenges">
+      <section>
+        <h3>Frontend-inexperienced Junior Developers</h3>
+        <p>
+          A big feature of this project was that all of the frontend team, save myself and a project manager, were completely new to React and most frontend
+          development. They were all junior Java developers, recently hired, and part of my job as a senior engineer was to teach them as we designed and built
+          out the app.
+        </p>
+        <p>
+          Fortunately team organization was extremely competent, so sprints were planned with this kind of inevitable slowdown in mind. And ultimately I was
+          given ample opportunity to review code, and meet with junior devs in person to discuss strategies, mistakes, etc.
+        </p>
+        <h3>Federal Design Standards</h3>
+        <p>
+          As a federal site, design requirements for appearance, function, and especially accessibility were extremely strict, but also well-expressed. As a
+          team, we addressed these from day one by adhering to a consistent unit test methodology, and regular developer check-ins to ensure consistent
+          standards throughout the sprints.
+        </p>
+        <p>
+          Accessibility was a particular thorn for the newer junior developers. Adding the nuance of aria-attributes atop general frontend methodology is a
+          pretty heavy load all at once.
+        </p>
+      </section>
+    </div>
+  </ProjectPage>
+</Layout>
