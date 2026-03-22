@@ -6,9 +6,6 @@ import ProjectPage from "@components/Projects/ProjectPage.astro";
 // Images
 import formsPageMain from "@assets/projects/irs/formsPageMain.png";
 import oic from "@assets/projects/irs/oic.png";
-// // Emoji
-import rocket from "@assets/mutantEmoji/rocket.svg";
-import rainbow from "@assets/mutantEmoji/rainbow.svg";
 
 // Logos
 import reactLogo from "@assets/techLogos/reactLogo.png";
@@ -17,10 +14,9 @@ import jestLogo from "@assets/techLogos/jest.svg";
 import javaLogo from "@assets/techLogos/java.svg";
 import storybookLogo from "@assets/techLogos/storybook.svg";
 import reduxLogo from "@assets/techLogos/redux.svg";
+
 // Icons
-import cobraIcon from "@assets/projects/staticSiteDesigns/cobra.png";
 import { projectEmoji } from "./projectEmoji";
-import InlineMutantEmoji from "@components/InlineMutantEmoji.astro";
 
 export const irsFormsTech: TechItem[] = [
   {
@@ -70,7 +66,7 @@ const gallery: GalleryItem[] = [
     </ol>
     <div slot="details">
       <section>
-        <p>Details are limited due to disclosure agreements.</p>
+        <p>(Details are limited due to disclosure agreements.)</p>
         <p>
           IRS.gov forms is additional React development on top of the existing site, and is built with standard React kit, including Jest unit testing and Redux
           state management. Some novel approaches were taken with this build-out, but the primary objective was building cleanly and securely.

@@ -4,11 +4,10 @@ import { type GalleryItem, type TechItem } from "@components/Projects/ProjectPag
 import ProjectPage from "@components/Projects/ProjectPage.astro";
 
 // Images
-import formsPageMain from "@assets/projects/irs/formsPageMain.png";
-import oic from "@assets/projects/irs/oic.png";
 import workOhioMain from "@assets/projects/workOhio/workOhioMain.png";
 import quoteBlocks from "@assets/projects/workOhio/quoteBlocks.png";
 import partnerCards from "@assets/projects/workOhio/partnerCards.png";
+import interactiveMap from "@assets/projects/workOhio/interactiveMap.png";
 
 // Logos
 import reactLogo from "@assets/techLogos/reactLogo.png";
@@ -48,6 +47,10 @@ const gallery: GalleryItem[] = [
     image: { img: partnerCards, imgAlt: "Partner Cards" },
     caption: "Custom Partner Cards component I built, allowing users to call or visit external partner sites for job opportunities/information.",
   },
+  {
+    image: { img: interactiveMap, imgAlt: "Interactive regional map of Ohio" },
+    caption: "A landing page for the one-on-one support section of the site, with an interactive Ohio regional map.",
+  },
 ];
 ---
 
@@ -69,7 +72,8 @@ const gallery: GalleryItem[] = [
 
     <ol slot="uxFlow">
       <li>User navigates to Work.Ohio.Gov (no login needed).</li>
-      <li>Static site contains external resources and links–no complex inner functionality.</li>
+      <li>Static site contains external resources and links.</li>
+      <li>Upon visiting a regional one-on-one support page, browser will prompt user for location to optionally re-order resources by proximity.</li>
     </ol>
     <div slot="details">
       <section>
@@ -87,24 +91,31 @@ const gallery: GalleryItem[] = [
     </div>
     <div slot="challenges">
       <section>
-        <h3>Aggressive Timeline & Loose Requirements</h3>
+        <h3>Aggressive Timeline</h3>
         <p>
-          The overall design of the site was set pretty early, but content and interactivity details came at a trickle, often deep into development efforts.
+          From start to finish, this project lasted 2 months. As one of the only two developers on the project, my #1 objective from the start was to ensure
+          that the non-technical team maintained realistic expectations for development tasks, as well as pushing back against feature promises that could be
+          risky to keep.
         </p>
         <p>
-          A notable example is the Partner Cards component. The visual design did not change through development, however the requirement for them to be
-          sortable by user location was communicated after the approved design was finished and deployed to production.
-          <br />
-          And again later, we were informed that we needed to be able to "pin" cards to the front of the sorting order, irrespective of user location. This requirement
-          came last-minute before project delivery.
-          <br />
-          Thanks to my cautious design standards however, I had built in a basic override to allow for this to work in production immediately via Contentful update,
-          while the full development change was able to be made and propagated a week later. Thus saving our team from needing to request last-minute timeline extensions
-          and impressing the client with our fast adaptability.
+          From a "Hard Skills" perspective this was not a difficult project. React development within a custom library that I was already used to using for the
+          past 8 or 9 months. This project was more acutely a test of my management skills; managing my own pacing but also managing the output of the
+          development side of the project, knowing that my project leads were not well-versed in the processes turning a Figma design into Production feature.
+        </p>
+        <h3>Loose Requirements</h3>
+        <p>
+          The overall design of the site was set pretty early, but content and interactivity details came at a trickle, often deep into development efforts. My
+          management team was under unique pressure since this task came directly from the top of the Executive office of the state, but also most of the
+          requirements were passed through periodic meetings instead of design documents.
         </p>
         <p>
-          While challenging, my experience prepared me well and I was able to both design with extra redundancies in place, as well as properly delegate
-          communication tasks to project management teams, especially when promised timelines would be strained.
+          I quickly pivoted to a much more flexible and redundant design methodology with my component design, knowing that there were likely going to be
+          last-minute changes up until the final release. This was ultimately the right move, and I'm happy to say that the Lt. Governor ended up loving the
+          final release, and <a
+            class="font-medium underline decoration-2"
+            href="https://www.linkedin.com/posts/jim-tressel-270b2136b_today-im-proud-to-launch-workohio-a-new-activity-7417645493368958976-BBvR"
+            >posted about the site on LinkedIn</a
+          > for weeks afterwards.
         </p>
       </section>
     </div>
